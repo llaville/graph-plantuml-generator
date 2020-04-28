@@ -58,3 +58,13 @@ echo $generator->render($graph);
 ## Documentation
 
 TODO
+
+## Resources
+
+* Demo online [PlantUML Server](http://www.plantuml.com/plantuml/uml/).
+* Official docker image of [PlantUML Server](https://hub.docker.com/r/plantuml/plantuml-server/) over Jetty or Tomcat.
+* [PlantUML Server](https://github.com/plantuml/plantuml-server) is a web application to generate UML diagrams on-the-fly.
+* [PlantText](https://www.planttext.com/) is UML online editor.
+* [Kroki](https://github.com/yuzutech/kroki) creates diagrams from textual descriptions.
+* [Real World PlantUML](https://real-world-plantuml.com/) examples.
+* Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
