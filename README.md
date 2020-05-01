@@ -45,6 +45,7 @@ use Bartlett\GraphPlantUml\PlantUmlGenerator;
 use Graphp\Graph\Graph;
 
 $generator = new PlantUmlGenerator();
+$generator->setExecutable('vendor/bin/plantuml');
 $graph = new Graph();
 $builder = new ClassDiagramBuilder(
     $generator,
@@ -58,6 +59,8 @@ $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
 echo $generator->createScript($graph);
+// default format is PNG
+echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 ```
 
 ## Documentation
