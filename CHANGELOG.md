@@ -9,3 +9,4 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 preview release features include :
 
 * build UML [Class diagram](https://en.wikipedia.org/wiki/Class_diagram)
+* provides `plantuml.jar` to draw images locally (with help of https://github.com/jawira/plantuml project)

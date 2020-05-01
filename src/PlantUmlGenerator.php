@@ -5,7 +5,7 @@ namespace Bartlett\GraphPlantUml;
 
 use Bartlett\GraphPlantUml\Formatter\DefaultFormatter;
 use Bartlett\GraphUml\Formatter\FormatterInterface;
-use Bartlett\GraphUml\Generator\AbstractGeneratorTrait;
+use Bartlett\GraphUml\Generator\AbstractGenerator;
 use Bartlett\GraphUml\Generator\GeneratorInterface;
 
 use Graphp\Graph\EdgeDirected;
@@ -13,12 +13,26 @@ use Graphp\Graph\Entity;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 
-class PlantUmlGenerator implements GeneratorInterface
+class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 {
     private const EOL = PHP_EOL;
 
-    use AbstractGeneratorTrait {
-        setOptions as declareOptions;
+    public function __construct()
+    {
+        /**
+         * Usually, your java executables should be located in your $PATH
+         * environment variable and invoking a mere `java` is sufficient. If you
+         * have no access to your $PATH variable, use this method to set the path
+         * to your java runtime executable.
+         *
+         * This should contain '.exe' on windows.
+         * - /full/path/to/bin/java
+         * - java.exe
+         * - c:\path\to\bin\java.exe
+         */
+        $this->setExecutable('java -jar plantuml.jar');
+        // (invoke 'java -jar plantuml.jar -help' for details on available formats)
+        $this->setFormat('png');
     }
 
     public function setOptions(array $values): void
@@ -30,7 +44,7 @@ class PlantUmlGenerator implements GeneratorInterface
             $options['namespace-separator'] = '.';
         }
 
-        $this->declareOptions($options);
+        parent::setOptions($options);
     }
 
     public function getFormatter(): FormatterInterface
@@ -43,7 +57,7 @@ class PlantUmlGenerator implements GeneratorInterface
         return 'plantuml';
     }
 
-    public function render(Graph $graph): string
+    public function createScript(Graph $graph): string
     {
         // build an array to map vertex hashes to vertex IDs for output
         $groups = [];
@@ -56,7 +70,6 @@ class PlantUmlGenerator implements GeneratorInterface
         $script = ['@startuml'];
 
         if (count($groups) > 1) {
-            $indent = str_repeat($this->options['indent-string'], 2);
             // put each group of vertices in a separate subgraph cluster
             foreach ($groups as $group => $vertices) {
                 $script[] = 'namespace ' . str_replace('\\', $this->options['namespace-separator'], $group) . ' {';
@@ -66,11 +79,9 @@ class PlantUmlGenerator implements GeneratorInterface
                 $script[] = '}';
             }
         } else {
-            //$script[] = 'namespace global {';
             foreach ($graph->getVertices() as $vertex) {
                 $script[] = $this->getLayoutVertex($vertex)['label'] ?? '';
             }
-            //$script[] = '}';
         }
 
         // add all edges as directed edges
@@ -82,6 +93,22 @@ class PlantUmlGenerator implements GeneratorInterface
         $script[] = '';
 
         return implode(PHP_EOL, $script);
+    }
+
+    public function createImageFile(Graph $graph, string $cmdFormat = ''): string
+    {
+        if (empty($cmdFormat)) {
+            // default command format, when none provided
+            $cmdFormat = sprintf(
+                '%s -t%s %s -filename %s',
+                self::CMD_EXECUTABLE,
+                self::CMD_FORMAT,
+                self::CMD_TEMP_FILE,
+                self::CMD_OUTPUT_FILE
+            );
+        }
+
+        return parent::createImageFile($graph, $cmdFormat);
     }
 
     private function getLayoutVertex(Vertex $vertex): array

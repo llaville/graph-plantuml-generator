@@ -19,7 +19,13 @@ If you don't know yet what is composer, have a look [on introduction](http://get
 composer require bartlett/graph-plantuml-generator
 ```
 
-Additionally, you'll have to install PlantUML jar and Java Runtime.
+Additionally, you'll have to install PlantUML jar and Java Runtime (java executable).
+Users of Debian/Ubuntu-based distributions may simply invoke:
+
+```bash
+$ sudo sudo apt update
+$ sudo apt-get install openjdk-11-jre-headless
+```
 
 while remaining users should install from [PlantUML Download](https://plantuml.com/fr/download) page.
 
@@ -45,14 +51,13 @@ $builder = new ClassDiagramBuilder(
     $graph,
     [
         'label-format' => 'default',
-        'indent-string' => '  ',
     ]
 );
 
 $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
-echo $generator->render($graph);
+echo $generator->createScript($graph);
 ```
 
 ## Documentation
@@ -68,3 +73,4 @@ TODO
 * [Kroki](https://github.com/yuzutech/kroki) creates diagrams from textual descriptions.
 * [Real World PlantUML](https://real-world-plantuml.com/) examples.
 * Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
+* [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf)

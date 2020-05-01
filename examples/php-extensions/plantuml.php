@@ -8,13 +8,13 @@ use Bartlett\GraphPlantUml\PlantUmlGenerator;
 use Graphp\Graph\Graph;
 
 $generator = new PlantUmlGenerator();
+$generator->setExecutable('vendor/bin/plantuml');
 $graph = new Graph();
 $builder = new ClassDiagramBuilder(
     $generator,
     $graph,
     [
         'label-format' => 'default',
-        'indent-string' => '  ',
     ]
 );
 
@@ -29,4 +29,6 @@ foreach ($extensions as $extension) {
 }
 
 // show UML diagram statements
-echo $generator->render($graph);
+echo $generator->createScript($graph);
+// default format is PNG
+echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
