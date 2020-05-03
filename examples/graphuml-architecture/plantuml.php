@@ -20,6 +20,11 @@ $builder = new GraphUml\ClassDiagramBuilder(
 
 $builder->createVertexClass(PlantUmlGenerator::class);
 
+// personalize render
+$graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
+$graph->setAttribute($generator->getName() . '.subgraph.cluster_0.graph.bgcolor', 'limegreen');
+$graph->setAttribute($generator->getName() . '.subgraph.cluster_1.graph.bgcolor', 'LightSteelBlue');
+
 // show UML diagram statements
 echo $generator->createScript($graph);
 // default format is PNG

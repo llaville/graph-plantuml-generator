@@ -69,14 +69,30 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
         $script = ['@startuml'];
 
+        $script[] = $this->getLayoutGraph($graph)['label'] ?? '';
+
         if (count($groups) > 1) {
+            // add subgraph cluster attributes
+            $clusters = array(
+                'graph' => $this->getName() . '.subgraph.cluster_%d.graph.',
+                'node'  => $this->getName() . '.subgraph.cluster_%d.node.',
+                'edge'  => $this->getName() . '.subgraph.cluster_%d.edge.',
+            );
+            $gid = 0;
             // put each group of vertices in a separate subgraph cluster
             foreach ($groups as $group => $vertices) {
-                $script[] = 'namespace ' . str_replace('\\', $this->options['namespace-separator'], $group) . ' {';
+                $prefix = $clusters['graph'];
+                $layout = $this->getAttributesPrefixed($graph, sprintf($prefix, $gid));
+                $bgColor = ($layout['bgcolor'] ?? '');
+                if (!empty($bgColor)) {
+                    $bgColor = ' #' . ltrim($bgColor, "#");
+                }
+                $script[] = 'namespace ' . str_replace('\\', $this->options['namespace-separator'], $group) . $bgColor . ' {';
                 foreach ($vertices as $vertex) {
                     $script[] = $this->getLayoutVertex($vertex)['label'] ?? '';
                 }
                 $script[] = '}';
+                $gid++;
             }
         } else {
             foreach ($graph->getVertices() as $vertex) {
@@ -111,9 +127,22 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         return parent::createImageFile($graph, $cmdFormat);
     }
 
+    private function getLayoutGraph(Graph $graph): array
+    {
+        $layout = $this->getAttributesPrefixed($graph, $this->getName() . '.graph.');
+
+        if (isset($layout['bgcolor'])) {
+            $layout['bgcolor'] = ltrim($layout['bgcolor'], "#");
+            $dashPrefix = strcasecmp($layout['bgcolor'], 'transparent') === 0 ? '' : '#';
+            $layout['label'] = 'skinparam backgroundColor ' . $dashPrefix . $layout['bgcolor'];
+        }
+
+        return $layout;
+    }
+
     private function getLayoutVertex(Vertex $vertex): array
     {
-        $layout = $this->getAttributesPrefixed($vertex);
+        $layout = $this->getAttributesPrefixed($vertex, $this->getName() . '.');
 
         $shortName = explode('\\', $vertex->getAttribute('id'));
         $shortName = array_pop($shortName);
@@ -139,7 +168,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
     private function getLayoutEdge(EdgeDirected $edge): array
     {
-        $layout = $this->getAttributesPrefixed($edge);
+        $layout = $this->getAttributesPrefixed($edge, $this->getName() . '.');
 
         if ($layout['style'] === 'dashed') {
             // implementation
@@ -157,10 +186,13 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         return $layout;
     }
 
-    private function getAttributesPrefixed(Entity $entity): array
+    /**
+     * @param Entity $entity
+     * @param string $prefix
+     * @return array
+     */
+    private function getAttributesPrefixed(Entity $entity, $prefix): array
     {
-        $prefix = $this->getName() . '.';
-
         $len = \strlen($prefix);
         $attributes = [];
         foreach ($entity->getAttributes() as $name => $value) {
