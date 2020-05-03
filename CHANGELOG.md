@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.1.1] - 2020-05-03
+
+### Fixed
+
+* subgraph with namespaces are not correctly renderer
+
 ## [0.1.0] - 2020-05-03
 
 preview release features include :
