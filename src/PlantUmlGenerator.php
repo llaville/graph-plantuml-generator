@@ -131,10 +131,21 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
     {
         $layout = $this->getAttributesPrefixed($graph, $this->getName() . '.graph.');
 
+        $layout['label'] = '';
+
         if (isset($layout['bgcolor'])) {
             $layout['bgcolor'] = ltrim($layout['bgcolor'], "#");
             $dashPrefix = strcasecmp($layout['bgcolor'], 'transparent') === 0 ? '' : '#';
-            $layout['label'] = 'skinparam backgroundColor ' . $dashPrefix . $layout['bgcolor'];
+            $layout['label'] .= self::EOL . 'skinparam backgroundColor ' . $dashPrefix . $layout['bgcolor'];
+        }
+        if (isset($layout['rankdir'])) {
+            // @link https://graphviz.gitlab.io/_pages/doc/info/attrs.html#k:rankdir
+            // BT and RL are not supported by PlantUML
+            if (strcasecmp('LR', $layout['rankdir']) === 0) {
+                $layout['label'] .= self::EOL . 'left to right direction';
+            } elseif (strcasecmp('TB', $layout['rankdir']) === 0) {
+                $layout['label'] .= self::EOL . 'top to bottom direction';
+            }
         }
 
         return $layout;

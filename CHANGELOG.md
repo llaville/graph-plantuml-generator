@@ -6,6 +6,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Added
+
+* add support to graph orientation and background-colors.
+
 ## [0.1.1] - 2020-05-03
 
 ### Fixed
