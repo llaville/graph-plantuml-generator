@@ -100,7 +100,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 
             $label = $this->visibility($property);
             if ($property->isStatic()) {
-                $label .= ' {static} ';
+                $label .= '{static} ';
             }
             $label .= $this->escape($property->getName());
 
