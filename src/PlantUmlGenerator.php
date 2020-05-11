@@ -69,7 +69,10 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
         $script = ['@startuml'];
 
-        $script[] = $this->getLayoutGraph($graph)['label'] ?? '';
+        $label = $this->getLayoutGraph($graph)['label'];
+        if (!empty($label)) {
+            $script[] = $label;
+        }
 
         if (count($groups)) {
             // add subgraph cluster attributes

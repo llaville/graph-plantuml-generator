@@ -6,6 +6,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Changed
+
+* avoid blank line after `@startuml` when there are no skin parameters or graph orientation
+
 ## [0.2.0] - 2020-05-05
 
 ### Added
