@@ -12,6 +12,7 @@ use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
 use function str_repeat;
+use function str_replace;
 
 class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 {
@@ -217,6 +218,6 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 
     private function escapeNamespaceSeparator(string $namespace): string
     {
-        return \str_replace('\\', $this->options['namespace-separator'], $namespace);
+        return str_replace('\\', $this->options['namespace-separator'], $namespace);
     }
 }
