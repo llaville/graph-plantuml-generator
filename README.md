@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-plantuml-generator.svg?style=flat-square)](https://packagist.org/packages/bartlett/graph-plantuml-generator)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)
+
 # bartlett/graph-plantuml-generator
 
 Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
@@ -77,3 +80,7 @@ TODO
 * [Real World PlantUML](https://real-world-plantuml.com/) examples.
 * Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
 * [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf)
+
+## Contributors
+
+* Laurent Laville (Lead Developer)
