@@ -171,7 +171,6 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
             . '{'
             . self::EOL
             . $layout['label_' . $this->getFormatter()->getFormat()]
-            . self::EOL
             . $indent . '}'
         ;
 
