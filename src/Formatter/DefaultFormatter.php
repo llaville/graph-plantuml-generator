@@ -11,6 +11,7 @@ use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionParameter;
+use function str_repeat;
 
 class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 {
@@ -31,7 +32,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
         $fields = $this->getLabelProperties($reflection);
         $operations = $this->getLabelFunctions($reflection->getMethods(), $reflection->getName());
 
-        $indent = \str_repeat($this->options['indent-string'], 2);
+        $indent = str_repeat($this->options['indent-string'], 2);
 
         $label = '';
         if (!empty($constants)) {
@@ -128,7 +129,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
             return '';
         }
 
-        return implode(self::EOL . \str_repeat($this->options['indent-string'], 2), $fields);
+        return implode(self::EOL . str_repeat($this->options['indent-string'], 2), $fields);
     }
 
     public function getLabelFunctions(array $functions, string $class = null): string
@@ -210,7 +211,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
             return '';
         }
 
-        return implode(self::EOL . \str_repeat($this->options['indent-string'], 2), $operations);
+        return implode(self::EOL . str_repeat($this->options['indent-string'], 2), $operations);
     }
 
     private function escapeNamespaceSeparator(string $namespace): string
