@@ -36,7 +36,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 
         $label = '';
         if (!empty($constants)) {
-            $label .= $indent . $constants . self::EOL;
+            $label .= $constants . self::EOL;
         }
         if (!empty($fields)) {
             $label .= $indent . $fields . self::EOL;
@@ -55,6 +55,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
             return '';
         }
 
+        $indent = str_repeat($this->options['indent-string'], 2);
         $label = '';
         $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
 
@@ -63,7 +64,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
                 continue;
             }
 
-            $label .= '+{static} '
+            $label .= $indent . '+{static} '
                 . $this->escape($name)
                 . ' : '
                 . $this->escape($this->getType(gettype($value)))

@@ -10,6 +10,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 * avoid blank line after `@startuml` when there are no skin parameters or graph orientation
 * avoid blank line at end of operations list of each entity
+* fix wrong indentation with class constants
 
 ## [0.2.0] - 2020-05-05
 
