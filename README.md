@@ -80,6 +80,7 @@ TODO
 * [Real World PlantUML](https://real-world-plantuml.com/) examples.
 * Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
 * [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf)
+* [PlantUML encoding functions for PHP](https://github.com/jawira/plantuml-encoding)
 
 ## Contributors
 

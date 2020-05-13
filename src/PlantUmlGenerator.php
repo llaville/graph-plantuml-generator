@@ -13,6 +13,8 @@ use Graphp\Graph\Entity;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 
+use function Jawira\PlantUml\encodep;
+
 class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 {
     private const EOL = PHP_EOL;
@@ -57,7 +59,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         return 'plantuml';
     }
 
-    public function createScript(Graph $graph): string
+    public function createScript(Graph $graph, bool $encode = false): string
     {
         // build an array to map vertex hashes to vertex IDs for output
         $groups = [];
@@ -111,7 +113,11 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         $script[] = '@enduml';
         $script[] = '';
 
-        return implode(PHP_EOL, $script);
+        $str = implode(PHP_EOL, $script);
+        if ($encode) {
+            $str = encodep($str);
+        }
+        return $str;
     }
 
     public function createImageFile(Graph $graph, string $cmdFormat = ''): string

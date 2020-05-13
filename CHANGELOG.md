@@ -6,6 +6,8 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+* add encoding (base64 safe url) optional behavior to `createScript` function.
+
 ## [0.3.0] - 2020-05-12
 
 ### Added

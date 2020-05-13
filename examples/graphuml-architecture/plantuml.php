@@ -27,5 +27,7 @@ $graph->setAttribute($generator->getName() . '.subgraph.cluster_1.graph.bgcolor'
 
 // show UML diagram statements
 echo $generator->createScript($graph);
+// show UML diagram statements encoded version (easier to use in URL with GET method)
+echo $generator->createScript($graph, true) . PHP_EOL;
 // default format is PNG
 echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
