@@ -6,6 +6,8 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [0.3.0] - 2020-05-12
+
 ### Added
 
 * add support to `show-properties` and `show-methods` options
