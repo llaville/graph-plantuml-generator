@@ -79,15 +79,20 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         if (count($groups)) {
             // add subgraph cluster attributes
             $clusters = array(
-                'graph' => $this->getName() . '.subgraph.cluster_%d.graph.',
-                'node'  => $this->getName() . '.subgraph.cluster_%d.node.',
-                'edge'  => $this->getName() . '.subgraph.cluster_%d.edge.',
+                'graph' => $this->getName() . '.cluster.%s.graph.',
+                'node'  => $this->getName() . '.cluster.%s.node.',
+                'edge'  => $this->getName() . '.cluster.%s.edge.',
             );
             $gid = 0;
             // put each group of vertices in a separate subgraph cluster
             foreach ($groups as $group => $vertices) {
                 $prefix = $clusters['graph'];
-                $layout = $this->getAttributesPrefixed($graph, sprintf($prefix, $gid));
+                foreach ([$group, $gid] as $clusterId) {
+                    $layout = $this->getAttributesPrefixed($graph, sprintf($prefix, $clusterId));
+                    if (!empty($layout)) {
+                        break;
+                    }
+                }
                 $bgColor = ($layout['bgcolor'] ?? '');
                 if (!empty($bgColor)) {
                     $bgColor = ' #' . ltrim($bgColor, "#");

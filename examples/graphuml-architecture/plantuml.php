@@ -22,8 +22,8 @@ $builder->createVertexClass(PlantUmlGenerator::class);
 
 // personalize render
 $graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
-$graph->setAttribute($generator->getName() . '.subgraph.cluster_0.graph.bgcolor', 'limegreen');
-$graph->setAttribute($generator->getName() . '.subgraph.cluster_1.graph.bgcolor', 'LightSteelBlue');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'LightSteelBlue');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'limegreen');
 
 // show UML diagram statements
 echo $generator->createScript($graph);

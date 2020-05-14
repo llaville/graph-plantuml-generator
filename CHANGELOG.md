@@ -6,7 +6,15 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Added
+
 * add encoding (base64 safe url) optional behavior to `createScript` function.
+
+### Changed
+
+* better support to subgraph cluster attributes
+  - require now [bartlett/graph-uml](https://github.com/llaville/graph-uml) version 0.8 or greater
+  - see `examples/graphuml-architecture/plantuml.php` to learn how to use
 
 ## [0.3.0] - 2020-05-12
 
