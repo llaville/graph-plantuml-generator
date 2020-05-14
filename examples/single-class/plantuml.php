@@ -15,11 +15,16 @@ $builder = new ClassDiagramBuilder(
     $graph,
     [
         'label-format' => 'default',
-        'indent-string' => '  ',
     ]
 );
 
-$builder->createVertexClass(ClassDiagramBuilder::class);
+$builder->createVertexClass(PlantUmlGenerator::class);
+
+// personalize render
+// https://plantuml.com/en/color
+$graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'lightsteelblue');
+$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'SteelBlue');
 
 // show UML diagram statements
 echo $generator->createScript($graph);
