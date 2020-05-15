@@ -12,6 +12,7 @@ Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
 The main features provided by this library are:
 
 * build UML statements of a class diagram
+* build image in one of the [supported formats](https://plantuml.com/en/command-line) with local `plantuml.jar` executable
 
 ## Install
 
@@ -26,7 +27,7 @@ Additionally, you'll have to install PlantUML jar and Java Runtime (java executa
 Users of Debian/Ubuntu-based distributions may simply invoke:
 
 ```bash
-$ sudo sudo apt update
+$ sudo apt update
 $ sudo apt-get install openjdk-11-jre-headless
 ```
 
@@ -89,8 +90,9 @@ TODO
 * [Kroki](https://github.com/yuzutech/kroki) creates diagrams from textual descriptions.
 * [Real World PlantUML](https://real-world-plantuml.com/) examples.
 * Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
-* [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf)
-* [PlantUML encoding functions for PHP](https://github.com/jawira/plantuml-encoding)
+* [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf).
+* [PlantUML encoding functions for PHP](https://github.com/jawira/plantuml-encoding).
+* [Markdown native diagrams with PlantUML](https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/) in GitLab or GitHub.
 
 ## Contributors
 
