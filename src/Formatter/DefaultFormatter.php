@@ -33,7 +33,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
         $fields = $this->getLabelProperties($reflection);
         $operations = $this->getLabelFunctions($reflection->getMethods(), $reflection->getName());
 
-        $indent = str_repeat($this->options['indent-string'], 2);
+        $indent = str_repeat($this->options['indent_string'], 2);
 
         $label = '';
         if (!empty($constants)) {
@@ -52,16 +52,16 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelConstants($reflection): string
     {
-        if (!$this->options['show-constants']) {
+        if (!$this->options['show_constants']) {
             return '';
         }
 
-        $indent = str_repeat($this->options['indent-string'], 2);
+        $indent = str_repeat($this->options['indent_string'], 2);
         $label = '';
         $parent = ($reflection instanceof ReflectionClass) ? $reflection->getParentClass() : false;
 
         foreach ($reflection->getConstants() as $name => $value) {
-            if ($this->options['only-self'] && $parent && $parent->getConstant($name) === $value) {
+            if ($this->options['only_self'] && $parent && $parent->getConstant($name) === $value) {
                 continue;
             }
 
@@ -81,7 +81,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 
     public function getLabelProperties(ReflectionClass $reflection): string
     {
-        if (!$this->options['show-properties']) {
+        if (!$this->options['show_properties']) {
             return '';
         }
 
@@ -95,7 +95,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
         $fields = [];
 
         foreach ($properties as $property) {
-            if ($this->options['only-self'] && $property->getDeclaringClass()->getName() !== $reflection->getName()) {
+            if ($this->options['only_self'] && $property->getDeclaringClass()->getName() !== $reflection->getName()) {
                 continue;
             }
 
@@ -135,12 +135,12 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
             return '';
         }
 
-        return implode(self::EOL . str_repeat($this->options['indent-string'], 2), $fields);
+        return implode(self::EOL . str_repeat($this->options['indent_string'], 2), $fields);
     }
 
     public function getLabelFunctions(array $functions, string $class = null): string
     {
-        if ($class && !$this->options['show-methods']) {
+        if ($class && !$this->options['show_methods']) {
             return '';
         }
 
@@ -150,7 +150,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
             $label = '';
             if ($method instanceof ReflectionMethod) {
                 // method not defined in this class (inherited from parent), so skip
-                if ($this->options['only-self'] && $method->getDeclaringClass()->getName() !== $class) {
+                if ($this->options['only_self'] && $method->getDeclaringClass()->getName() !== $class) {
                     continue;
                 }
 
@@ -221,11 +221,11 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
             return '';
         }
 
-        return implode(self::EOL . str_repeat($this->options['indent-string'], 2), $operations);
+        return implode(self::EOL . str_repeat($this->options['indent_string'], 2), $operations);
     }
 
     private function escapeNamespaceSeparator(string $namespace): string
     {
-        return str_replace('\\', $this->options['namespace-separator'], $namespace);
+        return str_replace('\\', $this->options['namespace_separator'], $namespace);
     }
 }

@@ -42,8 +42,8 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         $options = $values;
 
         // String to use as namespace separator (because PlantUML does not allow native PHP Namespace separator)
-        if (!isset($options['namespace-separator'])) {
-            $options['namespace-separator'] = '.';
+        if (!isset($options['namespace_separator'])) {
+            $options['namespace_separator'] = '.';
         }
 
         parent::setOptions($options);
@@ -78,11 +78,11 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
         if (count($groups)) {
             // add subgraph cluster attributes
-            $clusters = array(
-                'graph' => $this->getName() . '.cluster.%s.graph.',
-                'node'  => $this->getName() . '.cluster.%s.node.',
-                'edge'  => $this->getName() . '.cluster.%s.edge.',
-            );
+            $clusters = [
+                'graph' => 'cluster.%s.graph.',
+                'node'  => 'cluster.%s.node.',
+                'edge'  => 'cluster.%s.edge.',
+            ];
             $gid = 0;
             // put each group of vertices in a separate subgraph cluster
             foreach ($groups as $group => $vertices) {
@@ -97,7 +97,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
                 if (!empty($bgColor)) {
                     $bgColor = ' #' . ltrim($bgColor, "#");
                 }
-                $script[] = 'namespace ' . str_replace('\\', $this->options['namespace-separator'], $group) . $bgColor . ' {';
+                $script[] = 'namespace ' . str_replace('\\', $this->options['namespace_separator'], $group) . $bgColor . ' {';
                 foreach ($vertices as $vertex) {
                     $script[] = $this->getLayoutVertex($vertex)['label'] ?? '';
                 }
@@ -143,7 +143,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
     private function getLayoutGraph(Graph $graph): array
     {
-        $layout = $this->getAttributesPrefixed($graph, $this->getName() . '.graph.');
+        $layout = $this->getAttributesPrefixed($graph, 'graph.');
 
         $layout['label'] = '';
 
@@ -167,14 +167,14 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
     private function getLayoutVertex(Vertex $vertex): array
     {
-        $layout = $this->getAttributesPrefixed($vertex, $this->getName() . '.');
+        $layout = $this->getAttributesPrefixed($vertex, '');
 
         $shortName = explode('\\', $vertex->getAttribute('id'));
         $shortName = array_pop($shortName);
 
         $stereotype = $vertex->getAttribute('stereotype', 'class');
 
-        $indent = $this->options['indent-string'];
+        $indent = $this->options['indent_string'];
 
         $label = $indent
             . "$stereotype $shortName "
@@ -192,7 +192,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 
     private function getLayoutEdge(EdgeDirected $edge): array
     {
-        $layout = $this->getAttributesPrefixed($edge, $this->getName() . '.');
+        $layout = $this->getAttributesPrefixed($edge, '');
 
         if ($layout['style'] === 'dashed') {
             // implementation
@@ -215,16 +215,19 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
      * @param string $prefix
      * @return array
      */
-    private function getAttributesPrefixed(Entity $entity, $prefix): array
+    private function getAttributesPrefixed(Entity $entity, string $prefix): array
     {
-        $len = \strlen($prefix);
-        $attributes = [];
-        foreach ($entity->getAttributes() as $name => $value) {
-            if (\strpos($name, $prefix) === 0) {
-                $attributes[substr($name, $len)] = $value;
+        if (empty($prefix)) {
+            $attributes = $entity->getAttributes();
+        } else {
+            $len = \strlen($prefix);
+            $attributes = [];
+            foreach ($entity->getAttributes() as $name => $value) {
+                if (\strpos($name, $prefix) === 0) {
+                    $attributes[substr($name, $len)] = $value;
+                }
             }
         }
-
         return $attributes;
     }
 }
