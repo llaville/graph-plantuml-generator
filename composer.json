@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.1.3",
-        "bartlett/graph-uml": "^0.8",
+        "bartlett/graph-uml": "^1.0",
         "graphp/graphviz": "dev-subgraph_cluster_attributes as 1.0.0",
         "jawira/plantuml-encoding": "^1.0"
     },
