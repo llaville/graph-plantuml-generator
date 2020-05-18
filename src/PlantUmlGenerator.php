@@ -15,7 +15,7 @@ use Graphp\Graph\Vertex;
 
 use function Jawira\PlantUml\encodep;
 
-class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
+final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
 {
     private const EOL = PHP_EOL;
 
@@ -80,8 +80,8 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
             // add subgraph cluster attributes
             $clusters = [
                 'graph' => 'cluster.%s.graph.',
-                'node'  => 'cluster.%s.node.',
-                'edge'  => 'cluster.%s.edge.',
+                'node' => 'cluster.%s.node.',
+                'edge' => 'cluster.%s.edge.',
             ];
             $gid = 0;
             // put each group of vertices in a separate subgraph cluster
@@ -95,7 +95,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
                 }
                 $bgColor = ($layout['bgcolor'] ?? '');
                 if (!empty($bgColor)) {
-                    $bgColor = ' #' . ltrim($bgColor, "#");
+                    $bgColor = ' #' . ltrim($bgColor, '#');
                 }
                 $script[] = 'namespace ' . str_replace('\\', $this->options['namespace_separator'], $group) . $bgColor . ' {';
                 foreach ($vertices as $vertex) {
@@ -148,7 +148,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         $layout['label'] = '';
 
         if (isset($layout['bgcolor'])) {
-            $layout['bgcolor'] = ltrim($layout['bgcolor'], "#");
+            $layout['bgcolor'] = ltrim($layout['bgcolor'], '#');
             $dashPrefix = strcasecmp($layout['bgcolor'], 'transparent') === 0 ? '' : '#';
             $layout['label'] .= self::EOL . 'skinparam backgroundColor ' . $dashPrefix . $layout['bgcolor'];
         }
@@ -177,7 +177,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         $indent = $this->options['indent_string'];
 
         $label = $indent
-            . "$stereotype $shortName "
+            . $stereotype . ' ' . $shortName . ' '
             . '<< ' . $stereotype . ' >> '
             . '{'
             . self::EOL
@@ -203,7 +203,7 @@ class PlantUmlGenerator extends AbstractGenerator implements GeneratorInterface
         }
 
         $layout['label'] = (str_replace('\\', '.', $edge->getVertexStart()->getAttribute('id')))
-            . " $edgeop "
+            . ' ' . $edgeop . ' '
             . (str_replace('\\', '.', $edge->getVertexEnd()->getAttribute('id')))
         ;
 

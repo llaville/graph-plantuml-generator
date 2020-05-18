@@ -14,7 +14,7 @@ use ReflectionParameter;
 use function str_repeat;
 use function str_replace;
 
-class DefaultFormatter extends AbstractFormatter implements FormatterInterface
+final class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 {
     public function getLabelExtension(ReflectionExtension $reflection): string
     {
@@ -114,6 +114,8 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
                 // @link https://www.php.net/manual/en/reflectionproperty.hastype.php
                 if ($property->hasType()) {
                     $type = $property->getType()->getName();
+                } else {
+                    $type = null;
                 }
             } else {
                 // fallback to phpdoc annotations
@@ -175,7 +177,7 @@ class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 
             $firstParam = true;
             foreach ($method->getParameters() as $parameter) {
-                /** @var $parameter ReflectionParameter */
+                /** @var ReflectionParameter $parameter */
                 if ($firstParam) {
                     $firstParam = false;
                 } else {

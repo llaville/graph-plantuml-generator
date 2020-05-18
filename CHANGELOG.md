@@ -6,6 +6,15 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Changed
+
+* change case of options names
+from [Kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) to [Snake case](https://en.wikipedia.org/wiki/Snake_case)
+
+### Fixed
+
+* minor other QA (thanks to all tools available in https://github.com/jakzal/phpqa)
+
 ## [0.4.0] - 2020-05-14
 
 ### Added
