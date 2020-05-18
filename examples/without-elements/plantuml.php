@@ -14,10 +14,10 @@ $builder = new ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'default',
-        'show-constants' => false,
-        'show-properties' => false,
-        'show-methods' => false,
+        'label_format' => 'default',
+        'show_constants' => false,
+        'show_properties' => false,
+        'show_methods' => false,
     ]
 );
 

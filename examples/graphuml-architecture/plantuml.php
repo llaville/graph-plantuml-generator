@@ -14,16 +14,16 @@ $builder = new GraphUml\ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'default',
+        'label_format' => 'default',
     ]
 );
 
 $builder->createVertexClass(PlantUmlGenerator::class);
 
 // personalize render
-$graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
-$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'LightSteelBlue');
-$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'limegreen');
+$graph->setAttribute('graph.bgcolor', 'transparent');
+$graph->setAttribute('cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'LightSteelBlue');
+$graph->setAttribute('cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'limegreen');
 
 // show UML diagram statements
 echo $generator->createScript($graph);

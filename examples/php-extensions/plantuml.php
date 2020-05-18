@@ -14,7 +14,7 @@ $builder = new ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'default',
+        'label_format' => 'default',
     ]
 );
 
