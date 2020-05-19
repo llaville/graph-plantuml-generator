@@ -55,7 +55,7 @@ $builder = new ClassDiagramBuilder(
     $generator,
     $graph,
     [
-        'label-format' => 'default',
+        'label_format' => 'default',
     ]
 );
 
@@ -63,9 +63,9 @@ $builder->createVertexClass(PlantUmlGenerator::class);
 
 // personalize render
 // https://plantuml.com/en/color
-$graph->setAttribute($generator->getName() . '.graph.bgcolor', 'transparent');
-$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'lightsteelblue');
-$graph->setAttribute($generator->getName() . '.cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'SteelBlue');
+$graph->setAttribute('graph.bgcolor', 'transparent');
+$graph->setAttribute('cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'lightsteelblue');
+$graph->setAttribute('cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'SteelBlue');
 
 // show UML diagram statements
 echo $generator->createScript($graph);
@@ -76,6 +76,9 @@ echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 That should give such output:
 
 ![Single Class UML](./docs/single_class.png)
+
+**NOTE** You can use `$generator->getPrefix()` (that will return blank, because its not used here),
+for each `setAttribute` if you want to keep the same syntax for whatever generator.
 
 ## Documentation
 
