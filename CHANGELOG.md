@@ -18,6 +18,7 @@ from [Kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 ### Fixed
 
 * minor other QA (thanks to all tools available in https://github.com/jakzal/phpqa)
+* when `group` attribute is not explicitly specified, there is no namespace
 
 ## [0.4.0] - 2020-05-14
 

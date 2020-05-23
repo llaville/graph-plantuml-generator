@@ -34,14 +34,12 @@ PUML;
 
         $expected = <<<PUML
 @startuml
-namespace 0 {
   class A << class >> {
     --
   }
   class B << class >> {
     --
   }
-}
 @enduml
 
 PUML;
@@ -55,7 +53,6 @@ PUML;
 
         $expected = <<<PUML
 @startuml
-namespace 0 {
   class C << class >> {
     --
     +count()
@@ -64,7 +61,6 @@ namespace 0 {
     --
     +{abstract}count()
   }
-}
 C ..|> Countable
 @enduml
 

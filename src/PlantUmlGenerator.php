@@ -65,7 +65,10 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         $groups = [];
         foreach ($graph->getVertices() as $vertex) {
             if ($vertex instanceof Vertex) {
-                $groups[$vertex->getAttribute('group', 0)][] = $vertex;
+                $group = $vertex->getAttribute('group');
+                if (null !== $group) {
+                    $groups[$group][] = $vertex;
+                }
             }
         }
 
