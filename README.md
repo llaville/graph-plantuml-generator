@@ -1,5 +1,6 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-plantuml-generator.svg?style=flat-square)](https://packagist.org/packages/bartlett/graph-plantuml-generator)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)
+![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator)
 
 # bartlett/graph-plantuml-generator
 
