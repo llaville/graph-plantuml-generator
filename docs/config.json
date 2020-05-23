@@ -1,0 +1,21 @@
+{
+    "title": "GraPHP PlantUML Generator",
+    "tagline": "Create UML diagrams in PlantUML format",
+    "image": "app.png",
+    "html": {
+        "theme": "daux-red",
+        "auto_toc": false,
+        "breadcrumbs": true,
+        "breadcrumb_separator": "Chevrons",
+        "toggle_code": true,
+        "date_modified": true,
+        "inherit_index": true,
+        "search": true,
+        "repo": "llaville/graph-plantuml-generator",
+        "links": {
+            "GitHub Repository": "https://github.com/llaville/graph-plantuml-generator",
+            "Help/Support/Bugs": "https://github.com/llaville/graph-plantuml-generator/issues"
+        },
+        "powered_by": "Powered by Daux.io"
+    }
+}
