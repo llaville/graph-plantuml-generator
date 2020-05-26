@@ -83,7 +83,16 @@ for each `setAttribute` if you want to keep the same syntax for whatever generat
 
 ## Documentation
 
-TODO
+Full documentation is written in MarkDown format, and HTML export is possible with [Daux.io](https://github.com/dauxio/daux.io).
+See output results at http://bartlett.laurent-laville.org/graph-uml/ or raw `*.md` files in `docs` folder.
+
+**Table of Contents**
+
+* **Features**
+  - [Formatters](docs/01_Features/Formatters.md)
+
+* **Cookbook**
+  - [Personalize render](docs/02_Cookbook/Draw_App_Logo.md)
 
 ## Resources
 
