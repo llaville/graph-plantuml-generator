@@ -3,7 +3,7 @@
     "tagline": "Create UML diagrams in PlantUML format",
     "image": "app.png",
     "html": {
-        "theme": "daux-red",
+        "theme": "daux-green",
         "auto_toc": false,
         "breadcrumbs": true,
         "breadcrumb_separator": "Chevrons",
