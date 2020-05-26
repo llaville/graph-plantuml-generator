@@ -14,7 +14,8 @@
         "repo": "llaville/graph-plantuml-generator",
         "links": {
             "GitHub Repository": "https://github.com/llaville/graph-plantuml-generator",
-            "Help/Support/Bugs": "https://github.com/llaville/graph-plantuml-generator/issues"
+            "Help/Support/Bugs": "https://github.com/llaville/graph-plantuml-generator/issues",
+            "Packagist": "https://packagist.org/packages/bartlett/graph-plantuml-generator"
         },
         "powered_by": "Powered by Daux.io"
     }
