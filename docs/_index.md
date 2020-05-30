@@ -15,7 +15,7 @@ If you don't know yet what is composer, have a look [on introduction](http://get
 composer require bartlett/graph-plantuml-generator
 ```
 
-![Graph Composer](./graph_composer.png)
+![Graph Composer](./graph_composer.svg)
 
 Additionally, you'll have to install PlantUML jar and Java Runtime (java executable).
 Users of Debian/Ubuntu-based distributions may simply invoke:

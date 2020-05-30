@@ -6,6 +6,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0-rc.1] - 2020-05-30
+
+### Fixed
+
+* minor documentation updates
+
 ## [1.0.0-beta.1] - 2020-05-26
 
 ### Added
