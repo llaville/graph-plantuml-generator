@@ -6,6 +6,11 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0-rc.2] - 2020-09-10
+
+* sync with `bartlett/graph-uml` 1.0.0-rc.2
+  - See https://github.com/llaville/graph-uml/blob/master/CHANGELOG.md#100-rc2---2020-09-10
+
 ## [1.0.0-rc.1] - 2020-05-30
 
 ### Fixed
