@@ -25,7 +25,8 @@ shuffle($extensions);
 $extensions = array_slice($extensions, 0, 2);
 
 foreach ($extensions as $extension) {
-    $builder->createVertexExtension($extension);
+    $vertex = $builder->createVertexExtension($extension);
+    $vertex->setAttribute('group', 'PHP.Extensions');
 }
 
 // show UML diagram statements

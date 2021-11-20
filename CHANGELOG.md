@@ -6,6 +6,17 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.0.0-rc.3] - 2021-11-20
+
+### Changed
+
+- Allow installation with PHP 8
+- Remove `graphp/graphviz` fork usage since `bartlett/graph-uml` 1.0.0-rc.3
+
+### Fixed
+
+- `php-extensions` example about namespace group
+
 ## [1.0.0-rc.2] - 2020-09-10
 
 * sync with `bartlett/graph-uml` 1.0.0-rc.2
