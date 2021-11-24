@@ -40,6 +40,6 @@ echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
 * We specify the background color of `Bartlett\GraphPlantUml` namespace with `cluster.Bartlett\\GraphPlantUml.graph.bgcolor` attribute
 * We specify the background color of `Bartlett\GraphUml\Generator` namespace with `cluster.Bartlett\\GraphUml.graph.bgcolor` attribute
 
-All colors are defined at https://plantuml.com/en/color
+All colors are defined at <https://plantuml.com/en/color>
 
 Namespace separator character is escaped in the attribute name, while **cluster** identify a subgraph

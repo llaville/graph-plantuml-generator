@@ -15,27 +15,27 @@ Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
 All the documentation is available on [website](https://llaville.github.io/graph-plantuml-generator),
 generated from the [docs](https://github.com/llaville/graph-plantuml-generator/tree/master/docs) folder.
 
-**Table of Contents**
+### Features
 
-* **Features**
-  - [Formatters](docs/01_Features/Formatters.md)
+- [Formatters](docs/01_Features/Formatters.md)
 
-* **Cookbook**
-  - [Personalize render](docs/02_Cookbook/Draw_App_Logo.md)
+### Cookbook
+
+- [Personalize render](docs/02_Cookbook/Draw_App_Logo.md)
 
 ## Resources
 
-* Demo online [PlantUML Server](http://www.plantuml.com/plantuml/uml/).
-* Official docker image of [PlantUML Server](https://hub.docker.com/r/plantuml/plantuml-server/) over Jetty or Tomcat.
-* [PlantUML Server](https://github.com/plantuml/plantuml-server) is a web application to generate UML diagrams on-the-fly.
-* [PlantText](https://www.planttext.com/) is UML online editor.
-* [Kroki](https://github.com/yuzutech/kroki) creates diagrams from textual descriptions.
-* [Real World PlantUML](https://real-world-plantuml.com/) examples.
-* Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
-* [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf).
-* [PlantUML encoding functions for PHP](https://github.com/jawira/plantuml-encoding).
-* [Markdown native diagrams with PlantUML](https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/) in GitLab or GitHub.
+- Demo online [PlantUML Server](http://www.plantuml.com/plantuml/uml/).
+- Official docker image of [PlantUML Server](https://hub.docker.com/r/plantuml/plantuml-server/) over Jetty or Tomcat.
+- [PlantUML Server](https://github.com/plantuml/plantuml-server) is a web application to generate UML diagrams on-the-fly.
+- [PlantText](https://www.planttext.com/) is UML online editor.
+- [Kroki](https://github.com/yuzutech/kroki) creates diagrams from textual descriptions.
+- [Real World PlantUML](https://real-world-plantuml.com/) examples.
+- Composer package to provide [PlantUML executable](https://github.com/Jawira/plantuml) and jar.
+- [PlantUML Language Reference Guide (pdf)](http://plantuml.com/PlantUML_Language_Reference_Guide.pdf).
+- [PlantUML encoding functions for PHP](https://github.com/jawira/plantuml-encoding).
+- [Markdown native diagrams with PlantUML](https://blog.anoff.io/2018-07-31-diagrams-with-plantuml/) in GitLab or GitHub.
 
 ## Contributors
 
-* Laurent Laville (Lead Developer)
+- Laurent Laville (Lead Developer)
