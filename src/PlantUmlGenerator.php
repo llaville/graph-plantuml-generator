@@ -20,6 +20,18 @@ use Graphp\Graph\Vertex;
 
 use function Jawira\PlantUml\encodep;
 
+use function array_pop;
+use function count;
+use function explode;
+use function implode;
+use function sprintf;
+use function str_replace;
+use function strcasecmp;
+use function strlen;
+use function strpos;
+use function substr;
+use const PHP_EOL;
+
 /**
  * @author Laurent Laville
  */
@@ -133,7 +145,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         $script[] = '@enduml';
         $script[] = '';
 
-        $str = implode(PHP_EOL, $script);
+        $str = implode(self::EOL, $script);
         if ($encode) {
             $str = encodep($str);
         }
@@ -247,10 +259,10 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         if (empty($prefix)) {
             $attributes = $entity->getAttributes();
         } else {
-            $len = \strlen($prefix);
+            $len = strlen($prefix);
             $attributes = [];
             foreach ($entity->getAttributes() as $name => $value) {
-                if (\strpos($name, $prefix) === 0) {
+                if (strpos($name, $prefix) === 0) {
                     $attributes[substr($name, $len)] = $value;
                 }
             }

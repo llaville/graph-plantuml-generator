@@ -17,6 +17,10 @@ use ReflectionExtension;
 use ReflectionMethod;
 use ReflectionNamedType;
 use ReflectionParameter;
+use function count;
+use function gettype;
+use function implode;
+use function method_exists;
 use function str_repeat;
 use function str_replace;
 
