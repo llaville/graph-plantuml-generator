@@ -15,6 +15,7 @@ use Exception;
 use ReflectionClass;
 use ReflectionExtension;
 use ReflectionMethod;
+use ReflectionNamedType;
 use ReflectionParameter;
 use function str_repeat;
 use function str_replace;
@@ -121,7 +122,13 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
                 // introduces with PHP 7.4
                 // @link https://www.php.net/manual/en/reflectionproperty.hastype.php
                 if ($property->hasType()) {
-                    $type = $property->getType()->getName();
+                    /** @var null|ReflectionNamedType $rnt */
+                    $rnt = $property->getType();
+                    if ($rnt instanceof ReflectionNamedType) {
+                        $type = $rnt->getName();
+                    } else {
+                        $type = null;
+                    }
                 } else {
                     $type = null;
                 }

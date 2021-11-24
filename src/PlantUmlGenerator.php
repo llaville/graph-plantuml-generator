@@ -45,6 +45,9 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         $this->setFormat('png');
     }
 
+    /**
+     * @param array<string, mixed> $values
+     */
     public function setOptions(array $values): void
     {
         $options = $values;
@@ -123,6 +126,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
 
         // add all edges as directed edges
         foreach ($graph->getEdges() as $currentEdge) {
+            /** @var EdgeDirected $currentEdge */
             $script[] = $this->getLayoutEdge($currentEdge)['label'] ?? '';
         }
 
@@ -152,6 +156,10 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         return parent::createImageFile($graph, $cmdFormat);
     }
 
+    /**
+     * @param Graph $graph
+     * @return array<string, string>
+     */
     private function getLayoutGraph(Graph $graph): array
     {
         $layout = $this->getAttributesPrefixed($graph, 'graph.');
@@ -176,6 +184,10 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         return $layout;
     }
 
+    /**
+     * @param Vertex $vertex
+     * @return array<string, string>
+     */
     private function getLayoutVertex(Vertex $vertex): array
     {
         $layout = $this->getAttributesPrefixed($vertex, '');
@@ -201,6 +213,10 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         return $layout;
     }
 
+    /**
+     * @param EdgeDirected $edge
+     * @return array<string, string>
+     */
     private function getLayoutEdge(EdgeDirected $edge): array
     {
         $layout = $this->getAttributesPrefixed($edge, '');
@@ -224,7 +240,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
     /**
      * @param Entity $entity
      * @param string $prefix
-     * @return array
+     * @return array<string, mixed>
      */
     private function getAttributesPrefixed(Entity $entity, string $prefix): array
     {
