@@ -1,7 +1,10 @@
+<!-- markdownlint-disable MD013 -->
+# Draw application UML
 
-In this example, we will learn how to personalize render, to draw the Application Logo.
+In this example, we will learn how to personalize render of this package UML diagram.
 
 ```php
+<?php
 use Bartlett\GraphUml;
 use Bartlett\GraphPlantUml\PlantUmlGenerator;
 

@@ -29,3 +29,7 @@ markdown_extensions:
 nav:
     - "Home": index.md
     - "Getting-Started": getting-started.md
+    - "Features":
+          - "Formatters": 01_Features/Formatters.md
+    - "Cookbook":
+          - "Draw application UML": 02_Cookbook/Draw_App_Logo.md
