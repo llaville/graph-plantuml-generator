@@ -9,6 +9,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ### Added
 
+- GitHub workflow to build/deploy documentation with mkdocs/[mkdocs-material](https://github.com/squidfunk/mkdocs-material)
 - GitHub workflow to run [Mega-Linter](https://github.com/megalinter/megalinter) QA tool
 
 ### Changed
