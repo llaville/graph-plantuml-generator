@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 MD024 -->
 # Change Log
 
 All notable changes to this project will be documented in this file.
@@ -5,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/),
 using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
+
+### Added
+
+- GitHub workflow to run [Mega-Linter](https://github.com/megalinter/megalinter) QA tool
 
 ## [1.0.0-rc.3] - 2021-11-20
 
