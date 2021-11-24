@@ -30,11 +30,14 @@ class PlantUmlTest extends TestCase
 
     public function testGraphEmpty()
     {
+        // editorconfig-checker-disable
         $expected = <<<PUML
 @startuml
 @enduml
 
 PUML;
+        // editorconfig-checker-enable
+
         $this->assertEquals($expected, $this->generator->createScript($this->graph));
     }
 
@@ -43,6 +46,7 @@ PUML;
         $this->builder->createVertexClass('A');
         $this->builder->createVertexClass('B');
 
+        // editorconfig-checker-disable
         $expected = <<<PUML
 @startuml
   class A << class >> {
@@ -54,6 +58,7 @@ PUML;
 @enduml
 
 PUML;
+        // editorconfig-checker-enable
 
         $this->assertEquals($expected, $this->generator->createScript($this->graph));
     }
@@ -62,6 +67,7 @@ PUML;
     {
         $this->builder->createVertexClass('C');
 
+        // editorconfig-checker-disable
         $expected = <<<PUML
 @startuml
   class C << class >> {
@@ -76,6 +82,7 @@ C ..|> Countable
 @enduml
 
 PUML;
+        // editorconfig-checker-enable
 
         $this->assertEquals($expected, $this->generator->createScript($this->graph));
     }
@@ -85,6 +92,7 @@ PUML;
         $this->graph->setAttribute('graph.bgcolor', 'transparent');
         $this->graph->setAttribute('graph.rankdir', 'LR');
 
+        // editorconfig-checker-disable
         $expected = <<<PUML
 @startuml
 
@@ -93,6 +101,7 @@ left to right direction
 @enduml
 
 PUML;
+        // editorconfig-checker-enable
 
         $this->assertEquals($expected, $this->generator->createScript($this->graph));
     }
@@ -102,6 +111,7 @@ PUML;
         $this->graph->setAttribute('graph.bgcolor', 'transparent');
         $this->graph->setAttribute('graph.unknown', 'dummy');
 
+        // editorconfig-checker-disable
         $expected = <<<PUML
 @startuml
 
@@ -109,6 +119,7 @@ skinparam backgroundColor transparent
 @enduml
 
 PUML;
+        // editorconfig-checker-enable
 
         $this->assertEquals($expected, $this->generator->createScript($this->graph));
     }
