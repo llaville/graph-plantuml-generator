@@ -2,7 +2,7 @@
     "name": "bartlett/graph-plantuml-generator",
     "description": "A PlantUML generator for graph-uml",
     "type": "library",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "authors": [
         {
             "name": "Laurent Laville",
