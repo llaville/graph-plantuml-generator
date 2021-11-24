@@ -206,9 +206,13 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
                 if ($parameter->isOptional()) {
                     try {
                         $label .= ' = ' . $this->getCasted(
-                                str_replace(['self::', 'static::'], '', $parameter->getDefaultValueConstantName()),
-                                ''
-                            );
+                            str_replace(
+                                ['self::', 'static::'],
+                                '',
+                                $parameter->getDefaultValueConstantName()
+                            ),
+                            ''
+                        );
                     } catch (Exception $ignore) {
                         $label .= ' = «unknown»';
                     }
