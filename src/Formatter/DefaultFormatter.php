@@ -1,5 +1,10 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
+/**
+ * This file is part of the GraPHP-PlantUML package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Bartlett\GraphPlantUml\Formatter;
 
@@ -14,6 +19,9 @@ use ReflectionParameter;
 use function str_repeat;
 use function str_replace;
 
+/**
+ * @author Laurent Laville
+ */
 final class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 {
     public function getLabelExtension(ReflectionExtension $reflection): string
