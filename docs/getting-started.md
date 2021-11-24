@@ -41,4 +41,4 @@ sudo apt-get install openjdk-11-jre-headless
 
 while remaining users should install from [PlantUML Download](https://plantuml.com/fr/download) page.
 
-You can also use the PlantUML demo server at http://www.plantuml.com/plantuml/uml/
+You can also use the PlantUML demo server at <http://www.plantuml.com/plantuml/uml/>
