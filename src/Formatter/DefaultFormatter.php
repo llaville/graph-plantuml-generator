@@ -122,24 +122,7 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
             }
             $label .= $this->escape($property->getName());
 
-            if (method_exists($property, 'hasType')) {
-                // introduces with PHP 7.4
-                // @link https://www.php.net/manual/en/reflectionproperty.hastype.php
-                if ($property->hasType()) {
-                    /** @var null|ReflectionNamedType $rnt */
-                    $rnt = $property->getType();
-                    if ($rnt instanceof ReflectionNamedType) {
-                        $type = $rnt->getName();
-                    } else {
-                        $type = null;
-                    }
-                } else {
-                    $type = null;
-                }
-            } else {
-                // fallback to phpdoc annotations
-                $type = $this->getDocBlockVar($property);
-            }
+            $type = $this->getDocBlockVar($property);
 
             if ($type !== null) {
                 $label .= ' : ' . $this->escape($type);
