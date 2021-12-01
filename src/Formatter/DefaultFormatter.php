@@ -199,14 +199,18 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
 
                 if ($parameter->isOptional()) {
                     try {
-                        $label .= ' = ' . $this->getCasted(
-                            str_replace(
-                                ['self::', 'static::'],
-                                '',
-                                $parameter->getDefaultValueConstantName()
-                            ),
-                            ''
-                        );
+                        $defaultValue = $parameter->getDefaultValueConstantName();
+                        if (null === $defaultValue) {
+                            if (!is_string($type)) {
+                                throw new Exception();
+                            }
+                            $label .= ' = ""';
+                        } else {
+                            $label .= ' = ' . $this->getCasted(
+                                str_replace(['self::', 'static::'], '', $defaultValue),
+                                ''
+                            );
+                        }
                     } catch (Exception $ignore) {
                         $label .= ' = «unknown»';
                     }
@@ -214,9 +218,10 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
             }
             $label .= ')';
 
+            /** @var null|ReflectionNamedType $returnType */
             $returnType = $method->getReturnType();
-            if ($returnType) {
-                $type = (string) $returnType;
+            if ($returnType instanceof ReflectionNamedType) {
+                $type = $returnType->getName();
                 if ($type !== null) {
                     $label .= ' : ' . ($returnType->allowsNull() ? '?' : '') . $this->escapeNamespaceSeparator($type);
                 }
