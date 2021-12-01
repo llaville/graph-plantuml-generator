@@ -5,7 +5,8 @@
 |:-------:|
 | [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-plantuml-generator)](https://packagist.org/packages/bartlett/graph-plantuml-generator) |
 | [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-plantuml-generator/dev-master)](https://php.net/) |
-| ![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator) |
+| [![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator)](https://github.com/llaville/graph-plantuml-generator/blob/master/LICENSE) |
+| [![GitHub Discussions](https://img.shields.io/github/discussions/llaville/graph-plantuml-generator)](https://github.com/llaville/graph-plantuml-generator/discussions) |
 | [![Mega-Linter](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml) |
 | [![GitHub-Pages](https://github.com/llaville/graph-plantuml-generator/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/gh-pages.yml) |
 
