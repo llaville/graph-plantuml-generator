@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^7.1.3||^8.0",
+        "php": "^7.1.3|^8.0",
         "bartlett/graph-uml": "^1.0",
         "jawira/plantuml-encoding": "^1.0"
     },
@@ -21,7 +21,7 @@
     },
     "minimum-stability": "dev",
     "config": {
-        "preferred-install": "source",
+        "preferred-install": "dist",
         "sort-packages": true
     },
     "autoload": {
