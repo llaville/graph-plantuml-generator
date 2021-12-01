@@ -1,12 +1,13 @@
 <!-- markdownlint-disable MD013 -->
 # bartlett/graph-plantuml-generator
 
-|  Stable  | Upcoming |
-|:--------:|:--------:|
-| [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-plantuml-generator.svg?style=flat-square)](https://packagist.org/packages/bartlett/graph-plantuml-generator) | 1.0.0 |
-| PHP >= 7.1.3 | [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-plantuml-generator/dev-master)](https://php.net/) |
-| BSD    3 | ![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator) |
-|          | [![Mega-Linter](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml) |
+| Stable  |
+|:-------:|
+| [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-plantuml-generator)](https://packagist.org/packages/bartlett/graph-plantuml-generator) |
+| [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-plantuml-generator/dev-master)](https://php.net/) |
+| ![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator) |
+| [![Mega-Linter](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml) |
+| [![GitHub-Pages](https://github.com/llaville/graph-plantuml-generator/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/gh-pages.yml) |
 
 Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
 
