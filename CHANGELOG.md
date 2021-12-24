@@ -9,6 +9,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ### Changed
 
+- `Bartlett\GraphPlantUml\PlantUmlGenerator::createImageFile` returns now the command used to generate image file rather than temporary file
 - update all examples to generate image in target folder, if provided as first argument
 
 ## [1.0.1] - 2021-12-01

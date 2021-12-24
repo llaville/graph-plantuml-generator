@@ -165,7 +165,13 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
             );
         }
 
-        return parent::createImageFile($graph, $cmdFormat);
+        $command = parent::createImageFile($graph, $cmdFormat);
+
+        $patternFound = preg_match('/-filename (.*)/', $command, $matches);
+        if ($patternFound) {
+            return trim($matches[1]);
+        }
+        return '';
     }
 
     /**
