@@ -37,4 +37,15 @@ $graph->setAttribute('cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'Ste
 // show UML diagram statements
 echo $generator->createScript($graph);
 // default format is PNG
-echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
+$target = $generator->createImageFile($graph);
+if (isset($argv[1])) {
+    // target folder provided
+    $from = $target;
+    $target = rtrim($argv[1], DIRECTORY_SEPARATOR) . '/single_class.' . substr(strrchr($target, '.'), 1);
+    if (!rename($from, $target)) {
+        $target = null;
+    }
+} else {
+    $cmdFormat = '';
+}
+echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;

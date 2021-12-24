@@ -38,4 +38,15 @@ echo $generator->createScript($graph);
 // show UML diagram statements encoded version (easier to use in URL with GET method)
 echo $generator->createScript($graph, true) . PHP_EOL;
 // default format is PNG
-echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
+$target = $generator->createImageFile($graph);
+if (isset($argv[1])) {
+    // target folder provided
+    $from = $target;
+    $target = rtrim($argv[1], DIRECTORY_SEPARATOR) . '/app.' . substr(strrchr($target, '.'), 1);
+    if (!rename($from, $target)) {
+        $target = null;
+    }
+} else {
+    $cmdFormat = '';
+}
+echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
