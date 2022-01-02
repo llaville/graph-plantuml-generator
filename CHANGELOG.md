@@ -7,6 +7,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+### Fixed
+
+- Layout Vertex for PHP Extensions graph.
+
 ## [1.1.0] - 2021-12-24
 
 ### Changed
