@@ -3,7 +3,7 @@
 
 Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
 
-![GraPHP UML Application](./app.png)
+![Graph UML Application](./application.plantuml.svg)
 
 ## Features
 

@@ -24,14 +24,19 @@ $builder = new GraphUml\ClassDiagramBuilder(
 $builder->createVertexClass(PlantUmlGenerator::class);
 
 // personalize render
-$graph->setAttribute($generator->getPrefix() . 'graph.bgcolor', 'transparent');
-$graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'LightSteelBlue');
-$graph->setAttribute($generator->getPrefix() . 'cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'limegreen');
+// https://plantuml.com/en/color
+$graph->setAttribute('graph.bgcolor', 'transparent');
+$graph->setAttribute('cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'LightSteelBlue');
+$graph->setAttribute('cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'LimeGreen');
 
 // show UML diagram statements
 echo $generator->createScript($graph);
-// default format is PNG
-echo $generator->createImageFile($graph) . ' file generated' . PHP_EOL;
+
+// default format is PNG, change it to SVG
+$generator->setFormat($format = 'svg');
+
+$target = $generator->createImageFile($graph);
+echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
 
 **NOTE** Usage of `getPrefix()` is not necessary here. We keep it, in case you'll have custom generator rather than the default one.
