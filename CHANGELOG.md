@@ -7,6 +7,13 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-01-02
+
+### Changed
+
+- `.github/workflows/gh-pages.yml` workflow to generate dynamically UML graphs
+- simplify examples now `resources/graph-uml/build.php` script exists
+
 ### Fixed
 
 - Layout Vertex for PHP Extensions graph.
