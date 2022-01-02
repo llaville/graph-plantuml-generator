@@ -8,6 +8,7 @@ on:
         paths:
             - docs/**
     pull_request:
+    workflow_dispatch:
 
 concurrency:
     group: ${{ github.ref }}-${{ github.workflow }}
@@ -56,7 +57,9 @@ jobs:
             -   # Update diagrams used in documentation
                 name: Update Diagrams
                 run: |
-                    php examples/graphuml-architecture/plantuml.php docs
+                    php resources/graph-uml/build.php application docs/
+                    php resources/graph-uml/build.php php_extensions docs/02_Cookbook/
+                    php resources/graph-uml/build.php without_elements docs/02_Cookbook/
 
             -   # Setup Python version
                 name: Set up Python runtime
