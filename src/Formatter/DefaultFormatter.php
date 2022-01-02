@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * This file is part of the GraPHP-PlantUML package.
+ * This file is part of the Graph-PlantUML package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -32,10 +32,15 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
         $constants = $this->getLabelConstants($reflection);
         $operations = $this->getLabelFunctions($reflection->getFunctions());
 
-        return $reflection->getName() . '<<(E,#FF7700) Extension >>'
-            . $constants
-            . $operations
-        ;
+        $label = '';
+        if (!empty($constants)) {
+            $label .= $constants . self::EOL;
+        }
+        if (!empty($operations)) {
+            $indent = str_repeat($this->options['indent_string'], 2);
+            $label .= $indent . $operations . self::EOL;
+        }
+        return $label;
     }
 
     public function getLabelClass(ReflectionClass $reflection): string

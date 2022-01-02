@@ -10,6 +10,7 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 ### Fixed
 
 - Layout Vertex for PHP Extensions graph.
+- Default Formatter for PHP Extensions graph.
 
 ## [1.1.0] - 2021-12-24
 
