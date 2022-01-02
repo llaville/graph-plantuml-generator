@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * This file is part of the GraPHP-PlantUML package.
+ * This file is part of the Graph-PlantUML package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -33,16 +33,9 @@ $builder->createVertexClass(ClassDiagramBuilder::class);
 
 // show UML diagram statements
 echo $generator->createScript($graph);
-// default format is PNG
+
+// default format is PNG, change it to SVG
+$generator->setFormat($format = 'svg');
+
 $target = $generator->createImageFile($graph);
-if (isset($argv[1])) {
-    // target folder provided
-    $from = $target;
-    $target = rtrim($argv[1], DIRECTORY_SEPARATOR) . '/without_elements.' . substr(strrchr($target, '.'), 1);
-    if (!rename($from, $target)) {
-        $target = null;
-    }
-} else {
-    $cmdFormat = '';
-}
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
