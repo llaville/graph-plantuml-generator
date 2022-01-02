@@ -216,12 +216,15 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         $stereotype = $vertex->getAttribute('stereotype', 'class');
         if ('extension' === $stereotype) {
             $stereotype = '(E,#FF7700) Extension';
+            $object = 'class';
+        } else {
+            $object = $stereotype;
         }
 
         $indent = $this->options['indent_string'];
 
         $label = $indent
-            . 'class ' . $shortName . ' '
+            . $object . ' ' . $shortName . ' '
             . '<< ' . $stereotype . ' >> '
             . '{'
             . self::EOL
