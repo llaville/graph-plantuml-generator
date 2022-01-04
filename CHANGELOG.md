@@ -7,6 +7,12 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+## [1.2.1] - 2022-01-04
+
+### Fixed
+
+`bartlett/graph-uml` package compatibility with `graphp/graph` (commit 04461a7) and `graphp/graphviz` (commit 5872f6b)
+
 ## [1.2.0] - 2022-01-02
 
 ### Changed
