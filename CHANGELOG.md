@@ -7,6 +7,17 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 ## [Unreleased]
 
+<!-- MARKDOWN-RELEASE:START -->
+### Added
+
+- Workflow to automate release process
+
+### Changed
+
+- Raises PHP minimum constraint to 7.4.0
+- Raises `bartlett/graph-uml` constraint to 1.3 minimum
+<!-- MARKDOWN-RELEASE:END -->
+
 ## [1.2.1] - 2022-01-04
 
 ### Fixed
