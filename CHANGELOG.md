@@ -16,6 +16,10 @@ using the [Keep a CHANGELOG](http://keepachangelog.com) principles.
 
 - Raises PHP minimum constraint to 7.4.0
 - Raises `bartlett/graph-uml` constraint to 1.3 minimum
+
+### Fixed
+
+- Composer 2.2 plugins compatibility
 <!-- MARKDOWN-RELEASE:END -->
 
 ## [1.2.1] - 2022-01-04
