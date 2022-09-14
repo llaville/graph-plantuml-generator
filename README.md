@@ -8,7 +8,7 @@
 | [![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator)](https://github.com/llaville/graph-plantuml-generator/blob/master/LICENSE) |
 
 [![GitHub Discussions](https://img.shields.io/github/discussions/llaville/graph-plantuml-generator)](https://github.com/llaville/graph-plantuml-generator/discussions)
-[![Mega-Linter](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/mega-linter.yml)
+[![Unit Tests](https://github.com/llaville/graph-plantuml-generator/actions/workflows/unit-tests.yaml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/unit-tests.yaml)
 [![GitHub-Pages](https://github.com/llaville/graph-plantuml-generator/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/gh-pages.yml)
 
 Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
