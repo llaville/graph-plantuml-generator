@@ -3,7 +3,7 @@
 
 Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
 
-![Graph UML Application](./application.plantuml.svg)
+![Graph UML Application](./assets/images/application.plantuml.svg)
 
 ## Features
 
