@@ -1,0 +1,13 @@
+@startuml
+
+skinparam backgroundColor transparent
+namespace Bartlett.GraphUml #white {
+  class ClassDiagramBuilder << class >> {
+    --
+  }
+  interface ClassDiagramBuilderInterface << interface >> {
+    --
+  }
+}
+Bartlett.GraphUml.ClassDiagramBuilder ..|> Bartlett.GraphUml.ClassDiagramBuilderInterface
+@enduml

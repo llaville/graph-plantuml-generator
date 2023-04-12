@@ -1,0 +1,59 @@
+@startuml
+
+skinparam backgroundColor transparent
+namespace Bartlett.GraphPlantUml #LightSteelBlue {
+  class PlantUmlGenerator << class >> {
+    +{static} EOL : string = "\\n" {readOnly}
+
+    --
+    +__construct()
+    +setOptions(values : array) : void
+    +getFormatter() : Bartlett.GraphUml.Formatter.FormatterInterface
+    +getName() : string
+    +createScript(graph : Graphp.Graph.Graph, encode : bool = false) : string
+    +createImageFile(graph : Graphp.Graph.Graph, cmdFormat : string = '') : string
+    –getLayoutGraph(graph : Graphp.Graph.Graph) : array
+    –getLayoutVertex(vertex : Graphp.Graph.Vertex) : array
+    –getLayoutEdge(edge : Graphp.Graph.EdgeDirected) : array
+    –getAttributesPrefixed(entity : Graphp.Graph.Entity, prefix : string) : array
+  }
+}
+namespace Bartlett.GraphUml.Generator #LimeGreen {
+  class AbstractGenerator << class >> {
+    +{static} CMD_EXECUTABLE : string = "\%E" {readOnly}
+    +{static} CMD_FORMAT : string = "\%F" {readOnly}
+    +{static} CMD_OUTPUT_FILE : string = "\%o" {readOnly}
+    +{static} CMD_TEMP_FILE : string = "\%t" {readOnly}
+
+    #options : mixed
+    –executable : string
+    –format : string
+    --
+    +setOptions(values : array) : void
+    +{abstract}getFormatter() : Bartlett.GraphUml.Formatter.FormatterInterface
+    +{abstract}getName() : string
+    +getPrefix() : string
+    +getLabelClass(reflection : ReflectionClass) : string
+    +getLabelExtension(reflection : ReflectionExtension) : string
+    +setExecutable(executable : string) : void
+    +setFormat(format : string) : void
+    +{abstract}createScript(graph : Graphp.Graph.Graph) : string
+    +createImageFile(graph : Graphp.Graph.Graph, cmdFormat : string) : string
+  }
+  interface GeneratorInterface << interface >> {
+    --
+    +{abstract}setOptions(values : array) : void
+    +{abstract}getFormatter() : Bartlett.GraphUml.Formatter.FormatterInterface
+    +{abstract}getName() : string
+    +{abstract}getPrefix() : string
+    +{abstract}getLabelClass(reflection : ReflectionClass) : string
+    +{abstract}getLabelExtension(reflection : ReflectionExtension) : string
+    +{abstract}setExecutable(executable : string) : void
+    +{abstract}setFormat(format : string) : void
+    +{abstract}createScript(graph : Graphp.Graph.Graph) : string
+    +{abstract}createImageFile(graph : Graphp.Graph.Graph, cmdFormat : string) : string
+  }
+}
+Bartlett.GraphPlantUml.PlantUmlGenerator --|> Bartlett.GraphUml.Generator.AbstractGenerator
+Bartlett.GraphPlantUml.PlantUmlGenerator ..|> Bartlett.GraphUml.Generator.GeneratorInterface
+@enduml
