@@ -3,14 +3,9 @@
 
 ## Requirements
 
-* PHP 7.1.3 or greater
+* PHP 8.0 or greater
 * [bartlett/graph-uml](https://github.com/llaville/graph-uml)
 * [jawira/plantuml-encoding](https://github.com/jawira/plantuml-encoding)
-
-![GraPHP Composer](./graph-composer.svg)
-
-Generated with [fork](https://github.com/markuspoerschke/graph-composer/tree/add-options-to-exclude) of [clue/graph-composer](https://github.com/clue/graph-composer).
-Learn more about this fork on [PR request](https://github.com/clue/graph-composer/pull/45).
 
 ## Installation
 
