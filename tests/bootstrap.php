@@ -30,7 +30,7 @@ class B
 
 class C implements Countable
 {
-    public function count()
+    public function count(): int
     {
         return 0;
     }

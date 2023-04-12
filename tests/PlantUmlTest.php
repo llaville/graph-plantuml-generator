@@ -72,7 +72,7 @@ PUML;
 @startuml
   class C << class >> {
     --
-    +count()
+    +count() : int
   }
   interface Countable << interface >> {
     --
