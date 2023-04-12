@@ -1,0 +1,6 @@
+{
+    "main": "bootstrap.php",
+    "output": "graph-plantuml.phar",
+    "directories": ["src", "vendor"],
+    "compression": "GZ"
+}
