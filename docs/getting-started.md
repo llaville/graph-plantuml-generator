@@ -3,7 +3,7 @@
 
 ## Requirements
 
-* PHP 8.0 or greater
+* PHP 8.1 or greater
 * [bartlett/graph-uml](https://github.com/llaville/graph-uml)
 * [jawira/plantuml-encoding](https://github.com/jawira/plantuml-encoding)
 
@@ -32,9 +32,9 @@ Users of Debian/Ubuntu-based distributions may simply invoke:
 
 ```bash
 sudo apt update
-sudo apt-get install openjdk-11-jre-headless
+sudo apt-get install openjdk-17-jre-headless
 ```
 
-while remaining users should install from [PlantUML Download](https://plantuml.com/fr/download) page.
+while remaining users should install from [PlantUML Download](https://plantuml.com/en/download) page.
 
 You can also use the PlantUML demo server at <http://www.plantuml.com/plantuml/uml/>
