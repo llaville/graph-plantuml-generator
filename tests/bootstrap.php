@@ -8,7 +8,7 @@
  * @author Laurent Laville
  */
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/bootstrap.php';
 
 /**
  * TestClass to place utility functions in.
