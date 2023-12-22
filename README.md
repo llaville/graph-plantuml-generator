@@ -1,11 +1,20 @@
 <!-- markdownlint-disable MD013 -->
 # bartlett/graph-plantuml-generator
 
-| Stable  |
-|:-------:|
-| [![Latest Stable Version](https://img.shields.io/packagist/v/bartlett/graph-plantuml-generator)](https://packagist.org/packages/bartlett/graph-plantuml-generator) |
-| [![Minimum PHP Version](https://img.shields.io/packagist/php-v/bartlett/graph-plantuml-generator/dev-master)](https://php.net/) |
-| [![License](https://img.shields.io/github/license/llaville/graph-plantuml-generator)](https://github.com/llaville/graph-plantuml-generator/blob/master/LICENSE) |
+| Releases      |                   Branch                    |                              PHP                              |                         Packagist                         |                    License                     |                          Documentation                           |
+|:--------------|:-------------------------------------------:|:-------------------------------------------------------------:|:---------------------------------------------------------:|:----------------------------------------------:|:----------------------------------------------------------------:|
+| Stable v1.4.x | [![Branch 1.4][Branch_14x-img]][Branch_14x] | [![Minimum PHP Version)][PHPVersion_14x-img]][PHPVersion_14x] | [![Stable Version 1.4][Packagist_14x-img]][Packagist_14x] | [![License 1.4][License_14x-img]][License_14x] | [![Documentation 1.4][Documentation_14x-img]][Documentation_14x] |
+
+[Branch_14x-img]: https://img.shields.io/badge/branch-1.4-orange
+[Branch_14x]: https://github.com/llaville/graph-plantuml-generator/tree/1.4
+[PHPVersion_14x-img]: https://img.shields.io/packagist/php-v/bartlett/graph-plantuml-generator/1.4.0
+[PHPVersion_14x]: https://www.php.net/supported-versions.php
+[Packagist_14x-img]: https://img.shields.io/badge/packagist-v1.4.0-blue
+[Packagist_14x]: https://packagist.org/packages/bartlett/graph-plantuml-generator
+[License_14x-img]: https://img.shields.io/packagist/l/bartlett/graph-plantuml-generator
+[License_14x]: https://github.com/llaville/graph-plantuml-generator/blob/1.4/LICENSE
+[Documentation_14x-img]: https://img.shields.io/badge/documentation-v1.4-green
+[Documentation_14x]: https://github.com/llaville/graph-plantuml-generator/tree/1.4/docs
 
 [![GitHub Discussions](https://img.shields.io/github/discussions/llaville/graph-plantuml-generator)](https://github.com/llaville/graph-plantuml-generator/discussions)
 [![Unit Tests](https://github.com/llaville/graph-plantuml-generator/actions/workflows/unit-tests.yaml/badge.svg)](https://github.com/llaville/graph-plantuml-generator/actions/workflows/unit-tests.yaml)
@@ -15,8 +24,8 @@ Generate UML diagrams in [PlantUML](https://plantuml.com/) format.
 
 ## Documentation
 
-All the documentation is available on [website](https://llaville.github.io/graph-plantuml-generator),
-generated from the [docs](https://github.com/llaville/graph-plantuml-generator/tree/master/docs) folder.
+All the documentation is available on [website](https://llaville.github.io/graph-plantuml-generator/1.4),
+generated from the [docs](https://github.com/llaville/graph-plantuml-generator/tree/1.4/docs) folder.
 
 * [Getting Started](docs/getting-started.md).
 
