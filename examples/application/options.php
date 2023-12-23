@@ -8,7 +8,7 @@
  * @author Laurent Laville
  */
 
-return     [
+return [
     'label_format' => 'default',
     'graph.bgcolor' => 'transparent',
     // https://plantuml.com/en/color

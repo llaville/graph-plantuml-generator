@@ -10,8 +10,7 @@
 
 use Bartlett\GraphPlantUml\PlantUmlGenerator;
 
-return function (): Generator
-{
+return function (): Generator {
     $classes = [
         PlantUmlGenerator::class,
     ];
