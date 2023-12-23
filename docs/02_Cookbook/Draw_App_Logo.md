@@ -5,29 +5,26 @@ In this example, we will learn how to personalize render of this package UML dia
 
 ```php
 <?php
-use Bartlett\GraphUml;
 use Bartlett\GraphPlantUml\PlantUmlGenerator;
+use Bartlett\GraphUml\ClassDiagramBuilder;
 
 use Graphp\Graph\Graph;
+
+// personalize render
+$options = [
+    'label_format' => 'default',
+    'graph.bgcolor' => 'transparent',
+    // https://plantuml.com/en/color
+    'cluster.Bartlett\\GraphPlantUml.graph.bgcolor' => 'LightSteelBlue',
+    'cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor' => 'LimeGreen',
+];
 
 $generator = new PlantUmlGenerator();
 $generator->setExecutable('vendor/bin/plantuml');
 $graph = new Graph();
-$builder = new GraphUml\ClassDiagramBuilder(
-    $generator,
-    $graph,
-    [
-        'label_format' => 'default',
-    ]
-);
+$builder = new ClassDiagramBuilder($generator, $graph, $options);
 
 $builder->createVertexClass(PlantUmlGenerator::class);
-
-// personalize render
-// https://plantuml.com/en/color
-$graph->setAttribute('graph.bgcolor', 'transparent');
-$graph->setAttribute('cluster.Bartlett\\GraphPlantUml.graph.bgcolor', 'LightSteelBlue');
-$graph->setAttribute('cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor', 'LimeGreen');
 
 // show UML diagram statements
 echo $generator->createScript($graph);
@@ -38,8 +35,6 @@ $generator->setFormat($format = 'svg');
 $target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
 ```
-
-**NOTE** Usage of `getPrefix()` is not necessary here. We keep it, in case you'll have custom generator rather than the default one.
 
 * We specify a transparent background color with `graph.bgcolor` attribute
 * We specify the background color of `Bartlett\GraphPlantUml` namespace with `cluster.Bartlett\\GraphPlantUml.graph.bgcolor` attribute

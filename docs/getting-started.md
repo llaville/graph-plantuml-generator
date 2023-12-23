@@ -15,7 +15,7 @@ The recommended way to install this library is [through composer](http://getcomp
 If you don't know yet what is composer, have a look [on introduction](http://getcomposer.org/doc/00-intro.md).
 
 ```shell
-composer require bartlett/graph-plantuml-generator
+composer require bartlett/graph-plantuml-generator ^1.5
 ```
 
 ### With Git
@@ -24,7 +24,7 @@ The GraPHP-PlantUML can be directly used from [GitHub](https://github.com/llavil
 by cloning the repository into a directory of your choice.
 
 ```shell
-git clone https://github.com/llaville/graph-plantuml-generator.git
+git clone -b 1.5 https://github.com/llaville/graph-plantuml-generator.git
 ```
 
 Additionally, you'll have to install PlantUML jar and Java Runtime (java executable).
