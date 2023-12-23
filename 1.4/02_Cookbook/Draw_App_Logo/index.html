@@ -564,29 +564,26 @@
 <h1 id="draw-application-uml">Draw application UML</h1>
 <p>In this example, we will learn how to personalize render of this package UML diagram.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
-<span class="k">use</span> <span class="nx">Bartlett\GraphUml</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Bartlett\GraphPlantUml\PlantUmlGenerator</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Bartlett\GraphUml\ClassDiagramBuilder</span><span class="p">;</span>
 
 <span class="k">use</span> <span class="nx">Graphp\Graph\Graph</span><span class="p">;</span>
+
+<span class="c1">// personalize render</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
+    <span class="c1">// https://plantuml.com/en/color</span>
+    <span class="s1">&#39;cluster.Bartlett\\GraphPlantUml.graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;LightSteelBlue&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;LimeGreen&#39;</span><span class="p">,</span>
+<span class="p">];</span>
 
 <span class="nv">$generator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlantUmlGenerator</span><span class="p">();</span>
 <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">setExecutable</span><span class="p">(</span><span class="s1">&#39;vendor/bin/plantuml&#39;</span><span class="p">);</span>
 <span class="nv">$graph</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graph</span><span class="p">();</span>
-<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphUml\ClassDiagramBuilder</span><span class="p">(</span>
-    <span class="nv">$generator</span><span class="p">,</span>
-    <span class="nv">$graph</span><span class="p">,</span>
-    <span class="p">[</span>
-        <span class="s1">&#39;label_format&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-    <span class="p">]</span>
-<span class="p">);</span>
+<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ClassDiagramBuilder</span><span class="p">(</span><span class="nv">$generator</span><span class="p">,</span> <span class="nv">$graph</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
 
 <span class="nv">$builder</span><span class="o">-&gt;</span><span class="na">createVertexClass</span><span class="p">(</span><span class="nx">PlantUmlGenerator</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-
-<span class="c1">// personalize render</span>
-<span class="c1">// https://plantuml.com/en/color</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s1">&#39;graph.bgcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;transparent&#39;</span><span class="p">);</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s1">&#39;cluster.Bartlett\\GraphPlantUml.graph.bgcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;LightSteelBlue&#39;</span><span class="p">);</span>
-<span class="nv">$graph</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s1">&#39;cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor&#39;</span><span class="p">,</span> <span class="s1">&#39;LimeGreen&#39;</span><span class="p">);</span>
 
 <span class="c1">// show UML diagram statements</span>
 <span class="k">echo</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">createScript</span><span class="p">(</span><span class="nv">$graph</span><span class="p">);</span>
@@ -597,7 +594,6 @@
 <span class="nv">$target</span> <span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">createImageFile</span><span class="p">(</span><span class="nv">$graph</span><span class="p">);</span>
 <span class="k">echo</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$target</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;no&#39;</span> <span class="o">:</span> <span class="nv">$target</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; file generated&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 </code></pre></div>
-<p><strong>NOTE</strong> Usage of <code>getPrefix()</code> is not necessary here. We keep it, in case you'll have custom generator rather than the default one.</p>
 <ul>
 <li>We specify a transparent background color with <code>graph.bgcolor</code> attribute</li>
 <li>We specify the background color of <code>Bartlett\GraphPlantUml</code> namespace with <code>cluster.Bartlett\\GraphPlantUml.graph.bgcolor</code> attribute</li>

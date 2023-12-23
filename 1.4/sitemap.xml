@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://llaville.github.io/graph-plantuml-generator/</loc>
-         <lastmod>2023-12-22</lastmod>
+         <lastmod>2023-12-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://llaville.github.io/graph-plantuml-generator/getting-started/</loc>
-         <lastmod>2023-12-22</lastmod>
+         <lastmod>2023-12-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://llaville.github.io/graph-plantuml-generator/01_Features/Formatters/</loc>
-         <lastmod>2023-12-22</lastmod>
+         <lastmod>2023-12-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://llaville.github.io/graph-plantuml-generator/02_Cookbook/Draw_App_Logo/</loc>
-         <lastmod>2023-12-22</lastmod>
+         <lastmod>2023-12-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

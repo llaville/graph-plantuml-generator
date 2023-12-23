@@ -1,7 +1,5 @@
 @startuml
-
-skinparam backgroundColor transparent
-namespace Bartlett.GraphUml #white {
+namespace Bartlett.GraphUml {
   class ClassDiagramBuilder << class >> {
     --
   }
