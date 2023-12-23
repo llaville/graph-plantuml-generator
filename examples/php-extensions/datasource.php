@@ -8,7 +8,13 @@
  * @author Laurent Laville
  */
 
-$options = [
-    'label_format' => 'default',
-    'namespace_filter' => $namespaceFilter,
-];
+return function (): Generator
+{
+    $extensions = [
+        'lzf',
+        'yaml',
+    ];
+    foreach ($extensions as $extension) {
+        yield $extension;
+    }
+};

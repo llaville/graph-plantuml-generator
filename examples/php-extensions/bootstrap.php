@@ -8,8 +8,7 @@
  * @author Laurent Laville
  */
 
-$callback = function (Generator $vertices) {
-    foreach ($vertices as $extension) {
-        $this->createVertexExtension($extension);
-    }
+return function (): void
+{
+    require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
 };

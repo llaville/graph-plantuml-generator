@@ -8,14 +8,7 @@
  * @author Laurent Laville
  */
 
-use Bartlett\GraphUml\ClassDiagramBuilder;
-
-function dataSource(): Generator
-{
-    $classes = [
-        ClassDiagramBuilder::class,
-    ];
-    foreach ($classes as $class) {
-        yield $class;
-    }
-}
+return [
+    'label_format' => 'default',
+    'graph.bgcolor' => 'white',
+];

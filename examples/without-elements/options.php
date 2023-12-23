@@ -8,13 +8,9 @@
  * @author Laurent Laville
  */
 
-function dataSource(): Generator
-{
-    $extensions = [
-        'lzf',
-        'yaml',
-    ];
-    foreach ($extensions as $extension) {
-        yield $extension;
-    }
-}
+return [
+    'label_format' => 'default',
+    'show_constants' => false,
+    'show_properties' => false,
+    'show_methods' => false,
+];

@@ -8,4 +8,7 @@
  * @author Laurent Laville
  */
 
-// no filter required
+return function (): void
+{
+    require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
+};

@@ -8,16 +8,14 @@
  * @author Laurent Laville
  */
 
-use Bartlett\GraphPlantUml\PlantUmlGenerator;
-use Bartlett\GraphUml\Generator\GeneratorInterface;
+use Bartlett\GraphUml\ClassDiagramBuilder;
 
-function dataSource(): Generator
+return function (): Generator
 {
     $classes = [
-        PlantUmlGenerator::class,
-        GeneratorInterface::class,
+        ClassDiagramBuilder::class,
     ];
     foreach ($classes as $class) {
         yield $class;
     }
-}
+};

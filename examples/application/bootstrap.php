@@ -8,10 +8,7 @@
  * @author Laurent Laville
  */
 
-$options = [
-    'label_format' => 'default',
-    'show_constants' => false,
-    'show_properties' => false,
-    'show_methods' => false,
-    'namespace_filter' => $namespaceFilter,
-];
+return function (): void
+{
+    require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
+};

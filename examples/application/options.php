@@ -8,7 +8,10 @@
  * @author Laurent Laville
  */
 
-$options = [
+return     [
     'label_format' => 'default',
-    'graph.bgcolor' => 'white',
+    'graph.bgcolor' => 'transparent',
+    // https://plantuml.com/en/color
+    'cluster.Bartlett\\GraphPlantUml.graph.bgcolor' => 'LightSteelBlue',
+    'cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor' => 'LimeGreen',
 ];

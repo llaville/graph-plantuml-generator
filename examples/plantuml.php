@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * This file is part of the Graph-UML package.
+ * This file is part of the Graph-PlantUML package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,15 +13,32 @@ use Bartlett\GraphUml\ClassDiagramBuilder;
 
 use Graphp\Graph\Graph;
 
+if ($_SERVER['argc'] == 1) {
+    echo '=====================================================================', PHP_EOL;
+    echo 'Usage: php examples/plantuml.php <example-dirname>', PHP_EOL;
+    echo '                                 <output-folder>', PHP_EOL;
+    echo '                                 <format:png|svg>', PHP_EOL;
+    echo '                                 <write-statement-to-file>', PHP_EOL;
+    echo '=====================================================================', PHP_EOL;
+    exit();
+}
+
 $example = $_SERVER['argv'][1] ?? null;
 $folder = $_SERVER['argv'][2] ?? sys_get_temp_dir();
 $format = $_SERVER['argv'][3] ?? 'svg';
 $writeGraphStatement = $_SERVER['argv'][4] ?? false;
 
+$baseDir = __DIR__ . DIRECTORY_SEPARATOR . $example . DIRECTORY_SEPARATOR;
+$available = is_dir($baseDir) && file_exists($baseDir);
+
+if (empty($example) || !$available) {
+    throw new RuntimeException(sprintf('Example "%s" does not exists.', $example));
+}
+
 $resources = [
-    __DIR__ . '/bootstrap.php',     // autoloader or any other resource to include before run this script
-    __DIR__ . '/datasource.php',    // list of files or classes to parse
-    __DIR__ . '/options.php',       // all options to customize the Graph
+    $baseDir . 'bootstrap.php',     // autoloader or any other resource to include before run this script
+    $baseDir . 'datasource.php',    // list of files or classes to parse
+    $baseDir . 'options.php',       // all options to customize the Graph
 ];
 
 $isAutoloadFound = false;
@@ -45,9 +62,8 @@ $generator->setExecutable('vendor/bin/plantuml');
 $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
-foreach ($datasource() as $i => $extension) {
-    $attributes = ($i === 0) ? ['fillcolor' => 'burlywood3'] : [];
-    $builder->createVertexExtension($extension, $attributes);
+foreach ($datasource() as $class) {
+    $builder->createVertexClass($class, $options ?? []);
 }
 
 if ($writeGraphStatement) {
