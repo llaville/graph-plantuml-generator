@@ -17,9 +17,9 @@ use Graphp\Graph\Graph;
  */
 class PlantUmlTest extends TestCase
 {
-    private $generator;
-    private $builder;
-    private $graph;
+    private PlantUmlGenerator $generator;
+    private ClassDiagramBuilder $builder;
+    private Graph $graph;
 
     public function setup(): void
     {
