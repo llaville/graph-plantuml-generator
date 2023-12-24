@@ -39,7 +39,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
 {
     private const EOL = PHP_EOL;
 
-    public function __construct()
+    public function __construct(string $executable = 'java -jar plantuml.jar', string $format = 'png')
     {
         /**
          * Usually, your java executables should be located in your $PATH
@@ -51,10 +51,10 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
          * - /full/path/to/bin/java
          * - java.exe
          * - c:\path\to\bin\java.exe
+         *
+         * (invoke 'java -jar plantuml.jar -help' for details on available formats)
          */
-        $this->setExecutable('java -jar plantuml.jar');
-        // (invoke 'java -jar plantuml.jar -help' for details on available formats)
-        $this->setFormat('png');
+        parent::__construct($executable, $format);
     }
 
     /**

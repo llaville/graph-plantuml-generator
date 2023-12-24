@@ -40,8 +40,7 @@ if (!isset($datasource)) {
     $datasource = fn() => [];
 }
 
-$generator = new PlantUmlGenerator();
-$generator->setExecutable('vendor/bin/plantuml');
+$generator = new PlantUmlGenerator('vendor/bin/plantuml', $format);
 $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
@@ -55,8 +54,6 @@ if ($writeGraphStatement) {
     $output = rtrim($folder, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $example . '.puml';
     file_put_contents($output, $generator->createScript($graph));
 }
-
-$generator->setFormat($format);
 
 $target = $generator->createImageFile($graph);
 
