@@ -9,6 +9,5 @@
  */
 
 return [
-    'label_format' => 'default',
     'graph.bgcolor' => 'white',
 ];

@@ -9,7 +9,6 @@
  */
 
 return [
-    'label_format' => 'default',
     'graph.bgcolor' => 'transparent',
     // https://plantuml.com/en/color
     'cluster.Bartlett\\GraphPlantUml.graph.bgcolor' => 'LightSteelBlue',

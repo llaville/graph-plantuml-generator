@@ -9,7 +9,6 @@
  */
 
 return [
-    'label_format' => 'default',
     'show_constants' => false,
     'show_properties' => false,
     'show_methods' => false,
