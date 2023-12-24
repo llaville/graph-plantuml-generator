@@ -12,15 +12,13 @@ use Graphp\Graph\Graph;
 
 // personalize render
 $options = [
-    'label_format' => 'default',
     'graph.bgcolor' => 'transparent',
     // https://plantuml.com/en/color
     'cluster.Bartlett\\GraphPlantUml.graph.bgcolor' => 'LightSteelBlue',
     'cluster.Bartlett\\GraphUml\\Generator.graph.bgcolor' => 'LimeGreen',
 ];
 
-$generator = new PlantUmlGenerator();
-$generator->setExecutable('vendor/bin/plantuml');
+$generator = new PlantUmlGenerator('vendor/bin/plantuml', 'svg');
 $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options);
 
@@ -28,9 +26,6 @@ $builder->createVertexClass(PlantUmlGenerator::class);
 
 // show UML diagram statements
 echo $generator->createScript($graph);
-
-// default format is PNG, change it to SVG
-$generator->setFormat($format = 'svg');
 
 $target = $generator->createImageFile($graph);
 echo (empty($target) ? 'no' : $target) . ' file generated' . PHP_EOL;
