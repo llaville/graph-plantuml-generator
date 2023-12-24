@@ -58,7 +58,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
     }
 
     /**
-     * @param array<string, mixed> $values
+     * @inheritDoc
      */
     public function setOptions(array $values): void
     {
@@ -152,6 +152,9 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         return $str;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function createImageFile(Graph $graph, string $cmdFormat = ''): string
     {
         if (empty($cmdFormat)) {
@@ -175,7 +178,6 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
     }
 
     /**
-     * @param Graph $graph
      * @return array<string, string>
      */
     private function getLayoutGraph(Graph $graph): array
@@ -203,7 +205,6 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
     }
 
     /**
-     * @param Vertex $vertex
      * @return array<string, string>
      */
     private function getLayoutVertex(Vertex $vertex): array
@@ -238,7 +239,6 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
     }
 
     /**
-     * @param EdgeDirected $edge
      * @return array<string, string>
      */
     private function getLayoutEdge(EdgeDirected $edge): array
@@ -262,8 +262,6 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
     }
 
     /**
-     * @param Entity $entity
-     * @param string $prefix
      * @return array<string, mixed>
      */
     private function getAttributesPrefixed(Entity $entity, string $prefix): array

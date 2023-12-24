@@ -27,6 +27,9 @@ use function str_replace;
  */
 final class DefaultFormatter extends AbstractFormatter implements FormatterInterface
 {
+    /**
+     * @inheritDoc
+     */
     public function getLabelExtension(ReflectionExtension $reflection): string
     {
         $constants = $this->getLabelConstants($reflection);
@@ -43,6 +46,9 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
         return $label;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelClass(ReflectionClass $reflection): string
     {
         $constants = $this->getLabelConstants($reflection);
@@ -66,7 +72,10 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
         return $label;
     }
 
-    public function getLabelConstants($reflection): string
+    /**
+     * @inheritDoc
+     */
+    public function getLabelConstants(ReflectionClass|ReflectionExtension $reflection): string
     {
         if (!$this->options['show_constants']) {
             return '';
@@ -95,6 +104,9 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
         return $label;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelProperties(ReflectionClass $reflection): string
     {
         if (!$this->options['show_properties']) {
@@ -145,6 +157,9 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
         return implode(self::EOL . str_repeat($this->options['indent_string'], 2), $fields);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLabelFunctions(array $functions, string $class = null): string
     {
         if ($class && !$this->options['show_methods']) {
