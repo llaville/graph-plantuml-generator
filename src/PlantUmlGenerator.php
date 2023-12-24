@@ -26,9 +26,9 @@ use function explode;
 use function implode;
 use function sprintf;
 use function str_replace;
+use function str_starts_with;
 use function strcasecmp;
 use function strlen;
-use function strpos;
 use function substr;
 use const PHP_EOL;
 
@@ -272,7 +272,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
             $len = strlen($prefix);
             $attributes = [];
             foreach ($entity->getAttributes() as $name => $value) {
-                if (strpos($name, $prefix) === 0) {
+                if (str_starts_with($name, $prefix)) {
                     $attributes[substr($name, $len)] = $value;
                 }
             }
