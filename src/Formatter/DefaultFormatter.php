@@ -242,6 +242,7 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
 
     private function escapeNamespaceSeparator(string $namespace): string
     {
+        // @phpstan-ignore offsetAccess.notFound
         return str_replace('\\', $this->options['namespace_separator'], $namespace);
     }
 }

@@ -65,6 +65,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
         $options = $values;
 
         // String to use as namespace separator (because PlantUML does not allow native PHP Namespace separator)
+        // @phpstan-ignore isset.offset
         if (!isset($options['namespace_separator'])) {
             $options['namespace_separator'] = '.';
         }
@@ -123,6 +124,7 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
                 if (!empty($bgColor)) {
                     $bgColor = ' #' . ltrim($bgColor, '#');
                 }
+                // @phpstan-ignore offsetAccess.notFound
                 $script[] = 'namespace ' . str_replace('\\', $this->options['namespace_separator'], $group) . $bgColor . ' {';
                 foreach ($vertices as $vertex) {
                     $script[] = $this->getLayoutVertex($vertex)['label'] ?? '';
