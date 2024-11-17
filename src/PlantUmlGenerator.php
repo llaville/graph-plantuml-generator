@@ -124,7 +124,8 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
                 if (!empty($bgColor)) {
                     $bgColor = ' #' . ltrim($bgColor, '#');
                 }
-                $script[] = sprintf('%s %s%s {',
+                $script[] = sprintf(
+                    '%s %s%s {',
                     'namespace',
                     str_replace('\\', $this->options['namespace_separator'], (string) $group),   // @phpstan-ignore offsetAccess.notFound
                     $bgColor    // @phpstan-ignore argument.type
