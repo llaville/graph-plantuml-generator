@@ -4,6 +4,7 @@ Here are the links to the documentation for versions of PlantUML Generator for G
 
 - [PlantUML Generator 1.4 for Graph-UML](https://llaville.github.io/graph-plantuml-generator/1.4/)
 - [PlantUML Generator 1.5 for Graph-UML](https://llaville.github.io/graph-plantuml-generator/1.5/)
+- [PlantUML Generator 1.6 for Graph-UML](https://llaville.github.io/graph-plantuml-generator/1.6/)
 
 Full documentation may be found in `docs` folder into this repository, and may be read online without to do anything else.
 
