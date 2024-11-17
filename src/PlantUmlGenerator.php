@@ -124,8 +124,11 @@ final class PlantUmlGenerator extends AbstractGenerator implements GeneratorInte
                 if (!empty($bgColor)) {
                     $bgColor = ' #' . ltrim($bgColor, '#');
                 }
-                // @phpstan-ignore offsetAccess.notFound
-                $script[] = 'namespace ' . str_replace('\\', $this->options['namespace_separator'], $group) . $bgColor . ' {';
+                $script[] = sprintf('%s %s%s {',
+                    'namespace',
+                    str_replace('\\', $this->options['namespace_separator'], (string) $group),   // @phpstan-ignore offsetAccess.notFound
+                    $bgColor    // @phpstan-ignore argument.type
+                );
                 foreach ($vertices as $vertex) {
                     $script[] = $this->getLayoutVertex($vertex)['label'] ?? '';
                 }
