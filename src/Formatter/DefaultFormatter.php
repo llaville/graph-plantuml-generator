@@ -160,7 +160,7 @@ final class DefaultFormatter extends AbstractFormatter implements FormatterInter
     /**
      * @inheritDoc
      */
-    public function getLabelFunctions(array $functions, string $class = null): string
+    public function getLabelFunctions(array $functions, ?string $class = null): string
     {
         if ($class && !$this->options['show_methods']) {
             return '';
