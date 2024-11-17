@@ -1,0 +1,11 @@
+@startuml
+namespace Bartlett.GraphUml {
+  class ClassDiagramBuilder << class >> {
+    --
+  }
+  interface ClassDiagramBuilderInterface << interface >> {
+    --
+  }
+}
+Bartlett.GraphUml.ClassDiagramBuilder ..|> Bartlett.GraphUml.ClassDiagramBuilderInterface
+@enduml
