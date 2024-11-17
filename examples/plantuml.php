@@ -13,6 +13,8 @@ use Bartlett\GraphUml\ClassDiagramBuilder;
 
 use Graphp\Graph\Graph;
 
+use Webmozart\Assert\InvalidArgumentException;
+
 if ($_SERVER['argc'] == 1) {
     echo '=====================================================================', PHP_EOL;
     echo 'Usage: php examples/plantuml.php <example-dirname>', PHP_EOL;
@@ -61,8 +63,18 @@ $generator = new PlantUmlGenerator('vendor/bin/plantuml', $format);
 $graph = new Graph();
 $builder = new ClassDiagramBuilder($generator, $graph, $options ?? []);
 
-foreach ($datasource() as $class) {
-    $builder->createVertexClass($class, $options ?? []);
+foreach ($datasource() as $i => $source) {
+    try {
+        if ('php-extensions' === $example) {
+            $attributes = ($i === 0) ? ['fillcolor' => 'burlywood3'] : [];
+            $builder->createVertexExtension($source, $attributes);
+        } else {
+            $builder->createVertexClass($source, $options ?? []);
+        }
+    } catch (InvalidArgumentException $e) {
+        printf('Data source #%d: %s' . PHP_EOL, $i, $e->getMessage());
+        exit(255);
+    }
 }
 
 if ($writeGraphStatement) {
