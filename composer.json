@@ -12,17 +12,18 @@
     ],
     "require": {
         "php": "^8.1",
-        "bartlett/graph-uml": "^1.5",
+        "bartlett/graph-uml": "^1.6",
+        "graphp/graph": "1.x-dev#0adb04d as 1.0.0",
+        "graphp/graphviz": "1.x-dev#686f747 as 1.0.0",
         "jawira/plantuml-encoding": "^1.0"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.8",
         "jawira/plantuml": "^1.2024"
     },
-    "minimum-stability": "dev",
     "config": {
         "preferred-install": {
-            "graphp/graphviz": "source",
+            "graphp/*": "source",
             "*": "dist"
         },
         "sort-packages": true,
@@ -33,7 +34,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.5.x-dev"
+            "dev-master": "1.6.x-dev"
         },
         "bamarni-bin": {
             "bin-links": true,
