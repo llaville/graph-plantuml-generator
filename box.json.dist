@@ -6,7 +6,7 @@
         "vendor"
     ],
     "compression": "GZ",
-    "dump-autoload": true,
+    "dump-autoload": false,
     "files-bin": [
         "console-table.txt",
         "plain.txt",
