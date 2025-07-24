@@ -13,7 +13,7 @@ This release should be considered as a maintenance version that is compatible wi
 
 ### Fixed
 
-- https://php.watch/versions/8.4/implicitly-marking-parameter-type-nullable-deprecated on `Bartlett\GraphPlantUml\Formatter\DefaultFormatter::getLabelFunctions`
+- <https://php.watch/versions/8.4/implicitly-marking-parameter-type-nullable-deprecated> on `Bartlett\GraphPlantUml\Formatter\DefaultFormatter::getLabelFunctions`
 
 **Full Changelog**: [1.6.0...1.6.1](https://github.com/llaville/graph-plantuml-generator/compare/1.6.0...1.6.1)
 
