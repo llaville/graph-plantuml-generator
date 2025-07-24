@@ -12,7 +12,6 @@ vendor/
 .phplint.cache
 
 ###### PHPUnit ######
-.phpunit.result.cache
 .phpunit.cache/
 
 ###### Mega-Linter ######
